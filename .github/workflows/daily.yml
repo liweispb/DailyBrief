@@ -1,5 +1,6 @@
 name: Daily Brief
-
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 # Generate a fresh daily report and publish to GitHub Pages.
 #
 # One-time setup for forkers (see README → "Run on GitHub Actions"):
