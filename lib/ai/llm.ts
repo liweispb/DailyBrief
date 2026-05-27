@@ -103,3 +103,65 @@ export async function runLlm(opts: LlmRunOptions): Promise<LlmRunResult> {
       return runOpenAICompat(opts, OPENAI_PRESETS[backend]);
   }
 }
+/**
+ * Cheap startup sanity-check so a misconfigured backend errors in <1s
+ * instead of after 30s of source-fetching + half a dozen confusing
+ * "ANTHROPIC_API_KEY required" lines deep into the pipeline.
+ *
+ * The default LLM_BACKEND in the GH Actions workflow is `anthropic`,
+ * so the most common forker mistake is: add DEEPSEEK_API_KEY as a
+ * secret, forget to add the matching `LLM_BACKEND=deepseek` variable,
+ * then watch the run blow up looking for a key they never intended
+ * to use. We detect that exact case and tell them how to fix it.
+ */
+export function validateBackendCredentials(): void {
+  const backend = getBackend();
+  if (backend === "claude-cli") return;
+
+  const required: Record<Exclude<LlmBackendId, "claude-cli">, string> = {
+    anthropic: "ANTHROPIC_API_KEY",
+    openai: "OPENAI_API_KEY",
+    deepseek: "DEEPSEEK_API_KEY",
+    minimax: "MINIMAX_API_KEY",
+    zhipu: "ZHIPU_API_KEY",
+  };
+  const requiredVar = required[backend];
+
+  if (process.env[requiredVar] || process.env.LLM_API_KEY) return;
+
+  const otherKeysSet = Object.entries(required)
+    .filter(([b, v]) => b !== backend && !!process.env[v])
+    .map(([b, v]) => ({ backend: b, var: v }));
+
+  const lines: string[] = [
+    `LLM_BACKEND=${backend} but ${requiredVar} (and generic LLM_API_KEY) are both unset.`,
+  ];
+  if (otherKeysSet.length > 0) {
+    lines.push(
+      "",
+      "Other API keys ARE present in the environment — likely you meant to use one of those:",
+    );
+    for (const k of otherKeysSet) {
+      lines.push(`  • ${k.var} is set → switch to LLM_BACKEND=${k.backend}`);
+    }
+    lines.push(
+      "",
+      "Fix one of:",
+      `  (a) set LLM_BACKEND to match the key you actually have, or`,
+      `  (b) add ${requiredVar} for the backend you currently selected.`,
+    );
+  } else {
+    lines.push(
+      "",
+      `Fix: set ${requiredVar} (or the generic LLM_API_KEY).`,
+    );
+  }
+  lines.push(
+    "",
+    "Where to set it:",
+    "  • Local:          .env.local at the repo root",
+    "  • GitHub Actions: Settings → Secrets and variables → Actions",
+    "                    (Secrets tab for the API key, Variables tab for LLM_BACKEND)",
+  );
+  throw new Error(lines.join("\n"));
+}

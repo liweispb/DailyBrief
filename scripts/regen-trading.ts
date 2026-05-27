@@ -5,6 +5,7 @@ import path from "node:path";
 
 import type { DailyReport, TradingSection } from "../lib/ai/pipeline";
 import { generateTradingCommentary } from "../lib/ai/trading-commentary";
+import { validateBackendCredentials } from "../lib/ai/llm";
 import { fetchCryptoFearGreed } from "../lib/trading/fear-greed";
 import { fetchCryptoGlobal } from "../lib/trading/coingecko";
 import { analyzeWatchlist } from "../lib/trading/runner";
@@ -27,6 +28,8 @@ const OUTPUT_DIR = "daily_reports";
  * Follow up with `npm run render` to refresh the HTML.
  */
 async function main() {
+  validateBackendCredentials();
+
   const date = process.argv[2] || todayKey();
   const base = path.join(OUTPUT_DIR, date, date);
   const jsonPath = `${base}.json`;

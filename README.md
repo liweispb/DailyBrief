@@ -93,6 +93,8 @@
 3. **Settings → Pages → Build and deployment → Source** 选 "Deploy from a branch"，分支 `gh-pages` / 路径 `/ (root)`（第一次跑完才会出现 gh-pages 分支，先建 secret 再触发一次即可）
 4. **🔑 配置 LLM 后端** —— 这步是关键。每个后端都要**一个 secret + 对应的 `LLM_BACKEND` variable**（不只是 secret），按下表对照填：
 
+   > ⚠️ **最常踩的坑**：只加了 secret（比如 `DEEPSEEK_API_KEY`）忘了加 `LLM_BACKEND` variable —— workflow 默认 `LLM_BACKEND=anthropic`，所以无论你填的是哪家的 key，运行时都会报 `ANTHROPIC_API_KEY required`。两个都要加。
+
    | 你想用 | Secrets 标签加 | Variables 标签加 `LLM_BACKEND` | 大致成本 |
    |---|---|---|---|
    | 🟣 **Anthropic Sonnet**（默认，prompt 按 Sonnet 调优） | `ANTHROPIC_API_KEY` | 不填或填 `anthropic` | ~$0.03-0.05 / 天，月 < $2 |
@@ -140,7 +142,15 @@
 - **Variable name 报 "alphanumeric only"** —— 输入 `LLM_BACKEND` 时下划线被中文输入法替换成了全角 `＿`（U+FF3F）。切到英文输入法 Shift+`-` 重打
 - **第一次跑完才能选 Pages source** —— Pages 设置页要求选已存在的分支，但 `gh-pages` 是首次 workflow 跑成功后才创建出来。顺序：配 secret → 触发 workflow → 跑完 → 回 Settings → Pages 选 `gh-pages`
 - **Action 红 X 怎么看具体原因** —— 点失败的 build → 左边列出每个 step → 找有红 X 的那步点开看 log。最常见两类：`401/402` = API key 拼错或没余额；`403` = workflow permissions 没设成 Read and write
-- **跑了 30 秒就挂** —— 多半是 secret/variable 没配对（光填了 secret 没填 `LLM_BACKEND` variable）或者 LLM API 返 400。看 step "Generate today's report" 的 log
+- **报错 `ANTHROPIC_API_KEY (or generic LLM_API_KEY) is required`，但我填的是别家的 key** —— 经典 secret/variable 不配对。Workflow 默认 `LLM_BACKEND=anthropic`，光填 `DEEPSEEK_API_KEY` / `OPENAI_API_KEY` 不够，**必须同时去 Variables 标签加 `LLM_BACKEND=deepseek` / `openai`**。从 v1.x 起启动期会直接告诉你哪个 key 已设、应该把 `LLM_BACKEND` 改成什么
+- **配齐了 secret + variable 还是报同样的错** —— 99% 是配置放错了作用域。GitHub 上有两个长得几乎一样的页面：
+  - ✅ **Settings → Secrets and variables → Actions**（页眉是 "Repository secrets" / "Repository variables"）—— 本项目默认走这里
+  - ⚠️ **Settings → Environments → \<某个 environment\>**（页眉是 "Environment secrets" / "Environment variables"）—— 这里的值**只有当 workflow job 显式声明了 `environment: <name>` 才会注入**；本项目默认 workflow 没声明，所以放这里运行时拿不到
+  
+  排查方法：进配置页面看页眉。如果写的是 "Environment ..." 你有**两种修法**任选其一：
+  - **简单做法（推荐）**：把所有 secret **和** variable 从 Environment scope 移到 Repository scope（路径：Settings 左栏 → "Secrets and variables → Actions"，注意**不要从 "Environments" 进**），workflow 不用改。**特别提醒**：secret（如 `DEEPSEEK_API_KEY` / `ANTHROPIC_API_KEY`）因为隐藏了值，最容易被忘掉只搬 variable 不搬 secret，导致换了个新错误（"key 未设置"）。两边都要搬完整
+  - **保留 Environment 的做法**：编辑 `.github/workflows/daily.yml`，在 `gate` 和 `build` 两个 job 各加一行 `environment: <你的环境名>`（两个都要加，因为 `gate` 也读 `vars.REPORT_TZ` 等变量），名字必须跟 Settings → Environments 里建的一字不差。适合想用 environment 做审批门禁 / branch 限制的人
+- **跑了 30 秒就挂（其他情况）** —— LLM API 返 400 / key 没余额 / 配额耗尽。看 step "Generate today's report" 的 log
 
 ### B. 本地一键装
 
@@ -156,7 +166,7 @@ irm https://raw.githubusercontent.com/leiting-eric/DailyBrief/main/bootstrap.mjs
 1. 检查 Node / git / claude CLI 是否就位（没装 claude CLI 只发警告，可继续走 API 后端）
 2. `git clone` 到 `~/daily-brief`（Windows: `%USERPROFILE%\daily-brief`）
 3. `npm install`
-4. 注册系统定时（Windows Task Scheduler / macOS launchd / Linux cron，默认 16:00 本地时间）
+4. 注册系统定时（Windows Task Scheduler / macOS launchd / Linux cron，默认 08:00 本地时间）
 5. 写 `~/.daily-brief-config` 记录项目路径
 6. 在 `~/.claude/` 建符号链接让 Claude Code 的 skill 和 slash command 全局可用
 7. 跑一次 `npm run dry-run` 烟测
@@ -175,7 +185,7 @@ irm https://raw.githubusercontent.com/leiting-eric/DailyBrief/main/bootstrap.mjs
 node bootstrap.mjs --target /custom/path --at 07:30
 ```
 
-**LLM 后端**：默认走本地 `claude` CLI（首次需在浏览器登录一次：`echo "hi" | claude --print --model sonnet`，登录后永久生效）。不用 Claude Code 就跳过它，复制 `.env.example` 到 `.env.local` 把 `LLM_BACKEND` 切到 OpenAI / Anthropic / DeepSeek / MiniMax —— 见 [LLM 后端配置](#-llm-后端配置)。
+**LLM 后端**：默认走本地 `claude` CLI（首次需在浏览器登录一次：`echo "hi" | claude --print --model sonnet`，登录后永久生效）。不用 Claude Code，或想换模型 / 换家 / 接中转，都在 `.env.local` 里改 —— 完整可复制的配置示例见下方 [🤖 LLM 后端配置](#-llm-后端配置)。
 
 ### C. 给 AI Agent 一句话装
 
@@ -298,7 +308,13 @@ REPORT_LOCALE=zh    # 默认 — 中文 mode，含 V2EX / LinuxDo / DW 中文等
 
 项目通过 `LLM_BACKEND` 环境变量切换后端。**默认 `claude-cli`** —— 直接复用 Claude Code 已登录的认证，不需要额外配 API key。不用 Claude Code、或想走自己的 API key，按下表切换。
 
-把 `.env.example` 复制成 `.env.local`（gitignored），按 backend 解开对应几行：
+### 配置文件在哪
+
+**本地安装**：所有 LLM 配置都在仓库根目录的 `.env.local`（被 gitignore 了，安全存 key）。第一次没有这个文件就 `cp .env.example .env.local`，编辑器打开按 backend 解开对应几行即可。改完保存就生效，不用重启 shell —— 所有入口脚本（`npm run daily` / `regen-trading` / `regen-enrich`）第一行都会 dotenv 预加载它。
+
+**GitHub Actions 部署**：不需要 `.env.local`，改成在 Settings → Secrets and variables → Actions 里加（见上面 [A 方式](#a-github-actions--pages零基础设施推荐) 第 4 步）。
+
+### 支持的 backend
 
 | backend | API key 环境变量 | 默认 model | base URL |
 |---|---|---|---|
@@ -310,10 +326,59 @@ REPORT_LOCALE=zh    # 默认 — 中文 mode，含 V2EX / LinuxDo / DW 中文等
 
 <sup>1</sup> 中国大陆访问设 `MINIMAX_BASE_URL=https://api.minimaxi.com/v1`。
 
-**通用覆盖项**：
+### 本地 `.env.local` 最小配置示例（任选一组复制走）
+
+```bash
+# 默认：复用本机 claude CLI（Max 订阅最划算）
+#   什么都不用填，留空 .env.local 即可
+
+# Anthropic API
+LLM_BACKEND=anthropic
+ANTHROPIC_API_KEY=sk-ant-...
+# LLM_MODEL=claude-sonnet-4-6        # 可选，默认即此
+
+# DeepSeek（便宜，中文友好）
+LLM_BACKEND=deepseek
+DEEPSEEK_API_KEY=sk-...
+# LLM_MODEL=deepseek-v4-flash        # 可选
+
+# OpenAI
+LLM_BACKEND=openai
+OPENAI_API_KEY=sk-...
+# LLM_MODEL=gpt-4o-mini              # 可选；想用更大模型填 gpt-4o / gpt-4.1 等
+
+# MiniMax
+LLM_BACKEND=minimax
+MINIMAX_API_KEY=...
+# MINIMAX_BASE_URL=https://api.minimaxi.com/v1   # 国内访问用这条
+
+# 中转 / 反代 / OpenAI 兼容服务（Moonshot / SiliconFlow / OpenRouter / Ollama / LM Studio …）
+LLM_BACKEND=openai                   # 协议是 openai 兼容就填 openai
+LLM_API_KEY=<中转给的 key>
+LLM_BASE_URL=https://api.moonshot.cn/v1
+LLM_MODEL=moonshot-v1-8k             # 中转/自托管必须显式指定 model
+
+# Anthropic 协议反代（claude-relay 之类）
+LLM_BACKEND=anthropic
+ANTHROPIC_API_KEY=<反代 key>           # 也可写成 LLM_API_KEY
+ANTHROPIC_BASE_URL=https://你的反代/    # 也可写成 LLM_BASE_URL
+```
+
+### 通用覆盖项
+
 - `LLM_MODEL=<id>` —— 任意 backend 的 model 都能用这个变量覆盖默认（如 `LLM_MODEL=gpt-4o` 走 openai 的更大模型）
 - `<BACKEND>_BASE_URL` —— 走自托管代理 / 兼容服务（如 LM Studio / Ollama 跑 OpenAI 兼容接口 → `LLM_BACKEND=openai` + `OPENAI_BASE_URL=http://localhost:1234/v1`）
-- `LLM_API_KEY` / `LLM_BASE_URL` —— **通用别名**，专用变量没设时 fallback 到这里。用 Moonshot / SiliconFlow / OpenRouter / 自建反代等非预设服务时推荐用这对，避免 `OPENAI_API_KEY` 这样的语义错位。例：跑 Moonshot 只要 `LLM_BACKEND=openai` + `LLM_API_KEY=sk-...` + `LLM_BASE_URL=https://api.moonshot.cn/v1` + `LLM_MODEL=moonshot-v1-8k`
+- `LLM_API_KEY` / `LLM_BASE_URL` —— **通用别名**，专用变量没设时 fallback 到这里。用 Moonshot / SiliconFlow / OpenRouter / 自建反代等非预设服务时推荐用这对，避免 `OPENAI_API_KEY` 这样的语义错位
+
+### 验证配置是否对
+
+改完 `.env.local` 不想等 5-8 分钟的完整 daily 跑完才知道 key 通不通？跑这个 ~30 秒、只用 1 次 LLM 调用的小指令：
+
+```bash
+npm run regen-enrich -- finance:news
+```
+
+通了会看到 `[regen-enrich] enrichment done in 28s, matched 12/12`；不通会在 1 秒内被启动校验拦下并告诉你具体怎么修（哪个 key 没填 / `LLM_BACKEND` 该写啥）。
 
 ### 怎么选
 
@@ -552,6 +617,8 @@ MIT
 3. **Settings → Pages → Build and deployment → Source** → "Deploy from a branch" → branch `gh-pages` / path `/ (root)` (the `gh-pages` branch only exists after the first successful workflow run — configure secrets first, trigger once, then come back)
 4. **🔑 Configure the LLM backend** — this is the critical step. Each backend needs **a secret AND the matching `LLM_BACKEND` variable** (not just the secret). Pick one row:
 
+   > ⚠️ **Most common mistake**: adding only the secret (e.g. `DEEPSEEK_API_KEY`) and forgetting the `LLM_BACKEND` variable. The workflow defaults `LLM_BACKEND` to `anthropic`, so whatever key you set, the run will crash with `ANTHROPIC_API_KEY required`. Both pieces are required.
+
    | You want | Secret to add | `LLM_BACKEND` variable | Rough cost |
    |---|---|---|---|
    | 🟣 **Anthropic Sonnet** (default; prompts tuned for it) | `ANTHROPIC_API_KEY` | leave unset or `anthropic` | ~$0.03-0.05/day, <$2/month |
@@ -599,7 +666,15 @@ If you just want the default (08:00 local daily), **set only `REPORT_TZ`** (e.g.
 - **"Variable name can only contain alphanumeric characters"** — most likely the underscore in `LLM_BACKEND` got autocorrected by a CJK input method to a full-width `＿` (U+FF3F). Switch to English input, retype Shift+`-`, or copy-paste.
 - **Pages source dropdown doesn't show `gh-pages`** — that branch only exists after the first successful workflow run. Order: configure secret → trigger workflow → wait for green → go back to Settings → Pages.
 - **Where to read a failed run** — Actions tab → click the red X → left sidebar lists each step → click the failing one to expand its log. Most common causes: `401`/`402` (API key wrong or out of credit), `403` (workflow permissions still set to "Read only").
-- **Fails after ~30 seconds** — usually a secret/variable mismatch (added a secret but didn't add the matching `LLM_BACKEND` variable) or the LLM API returned 400. Check the "Generate today's report" step.
+- **Error: `ANTHROPIC_API_KEY (or generic LLM_API_KEY) is required` — but I set a different provider's key** — classic secret-without-variable mismatch. The workflow defaults `LLM_BACKEND=anthropic`; setting `DEEPSEEK_API_KEY` / `OPENAI_API_KEY` alone is not enough — you **also need to add the matching `LLM_BACKEND=deepseek` / `openai` under Variables**. As of v1.x the startup check prints exactly which key it found and which `LLM_BACKEND` value to set.
+- **I added both the secret and variable, still the same error** — 99% sure your values went into the wrong scope. GitHub has two near-identical-looking pages:
+  - ✅ **Settings → Secrets and variables → Actions** (header reads "Repository secrets" / "Repository variables") — this is the default this project uses
+  - ⚠️ **Settings → Environments → \<some environment\>** (header reads "Environment secrets" / "Environment variables") — values here are **only injected when a workflow job declares `environment: <name>`**; the default workflow doesn't, so anything stored here is invisible at runtime
+  
+  Open your config page and check the section header. If it says "Environment ..." you have **two fixes**, pick one:
+  - **Simple fix (recommended)**: move every secret **and** variable from Environment scope to Repository scope (Settings sidebar → "Secrets and variables → Actions" — **don't enter via "Environments"**). No workflow edit needed. **Watch out**: secrets like `DEEPSEEK_API_KEY` / `ANTHROPIC_API_KEY` hide their values, so it's easy to "move" only the visible variables and forget the secrets — then you trade the old error for a new one ("key is not set"). Move both, completely.
+  - **Keep-the-environment fix**: edit `.github/workflows/daily.yml` and add `environment: <your-env-name>` to BOTH the `gate` and `build` jobs (both, because `gate` reads `vars.REPORT_TZ` etc. too). The name must exactly match the environment you created under Settings → Environments. Useful if you want environment-based approval gates or branch restrictions.
+- **Fails after ~30s (other cases)** — LLM API returned 400, the key has no credit, or quota is exhausted. Check the "Generate today's report" step's log.
 
 ### B. Local one-liner install
 
@@ -615,7 +690,7 @@ This script will:
 1. Check that Node / git / claude CLI are on PATH (claude CLI missing is a warning, not an error — you can use an API backend instead)
 2. `git clone` to `~/daily-brief` (Windows: `%USERPROFILE%\daily-brief`)
 3. `npm install`
-4. Register the OS scheduler (Windows Task Scheduler / macOS launchd / Linux cron, default 16:00 local time)
+4. Register the OS scheduler (Windows Task Scheduler / macOS launchd / Linux cron, default 08:00 local time)
 5. Write `~/.daily-brief-config` recording the project path
 6. Symlink the Claude Code skill + slash commands into `~/.claude/` so they work from any directory
 7. Run `npm run dry-run` as a smoke test
@@ -634,7 +709,7 @@ Custom install path / time:
 node bootstrap.mjs --target /custom/path --at 07:30
 ```
 
-**LLM backend**: defaults to the local `claude` CLI (first time you'll need to log in once in a browser: `echo "hi" | claude --print --model sonnet` — once is forever). If you don't use Claude Code, skip it: copy `.env.example` to `.env.local` and set `LLM_BACKEND` to OpenAI / Anthropic / DeepSeek / MiniMax — see [LLM backend configuration](#-llm-backend-configuration).
+**LLM backend**: defaults to the local `claude` CLI (first time you'll need to log in once in a browser: `echo "hi" | claude --print --model sonnet` — once is forever). To skip Claude Code, change the model, switch providers, or point at a proxy — edit `.env.local`. Copy-paste recipes are in [🤖 LLM backend configuration](#-llm-backend-configuration) below.
 
 ### C. Have an AI agent install it for you
 
@@ -757,7 +832,13 @@ The full en-mode switch covers: HTML UI text, the three LLM prompt sets (enrichm
 
 The project switches backends via the `LLM_BACKEND` environment variable. **Default is `claude-cli`** — it reuses your existing Claude Code login, no API key needed. To use your own API key with another provider, set up `.env.local`:
 
-Copy `.env.example` to `.env.local` (gitignored), uncomment the section for your chosen backend:
+### Where the config lives
+
+**Local install**: everything goes in `.env.local` at the repo root (gitignored — safe place for keys). First time? `cp .env.example .env.local`, open it in your editor, uncomment the rows you need. Changes take effect on next run, no shell restart — every entry script (`npm run daily` / `regen-trading` / `regen-enrich`) dotenv-loads the file on its first line.
+
+**GitHub Actions deploy**: no `.env.local` needed — set values under Settings → Secrets and variables → Actions instead (see [Path A](#a-github-actions--pages-zero-infra-recommended) step 4 above).
+
+### Supported backends
 
 | backend | API key env var | Default model | Base URL |
 |---|---|---|---|
@@ -769,10 +850,59 @@ Copy `.env.example` to `.env.local` (gitignored), uncomment the section for your
 
 <sup>1</sup> Inside mainland China, set `MINIMAX_BASE_URL=https://api.minimaxi.com/v1`.
 
-**Universal overrides**:
+### Minimal `.env.local` recipes (pick one and copy)
+
+```bash
+# Default: reuse local claude CLI (best deal if you have a Max subscription)
+#   Leave .env.local empty — done.
+
+# Anthropic API
+LLM_BACKEND=anthropic
+ANTHROPIC_API_KEY=sk-ant-...
+# LLM_MODEL=claude-sonnet-4-6           # optional — this is the default
+
+# DeepSeek (cheap, strong on Chinese)
+LLM_BACKEND=deepseek
+DEEPSEEK_API_KEY=sk-...
+# LLM_MODEL=deepseek-v4-flash           # optional
+
+# OpenAI
+LLM_BACKEND=openai
+OPENAI_API_KEY=sk-...
+# LLM_MODEL=gpt-4o-mini                 # optional; use gpt-4o / gpt-4.1 for bigger
+
+# MiniMax
+LLM_BACKEND=minimax
+MINIMAX_API_KEY=...
+# MINIMAX_BASE_URL=https://api.minimaxi.com/v1   # use this from mainland China
+
+# Proxy / aggregator / OpenAI-compatible service (Moonshot / SiliconFlow / OpenRouter / Ollama / LM Studio …)
+LLM_BACKEND=openai                       # most proxies speak OpenAI protocol
+LLM_API_KEY=<key from your provider>
+LLM_BASE_URL=https://api.moonshot.cn/v1
+LLM_MODEL=moonshot-v1-8k                 # always explicit for proxies / self-hosted
+
+# Anthropic-protocol relay (claude-relay etc.)
+LLM_BACKEND=anthropic
+ANTHROPIC_API_KEY=<relay key>            # or use LLM_API_KEY
+ANTHROPIC_BASE_URL=https://your-relay/   # or use LLM_BASE_URL
+```
+
+### Universal overrides
+
 - `LLM_MODEL=<id>` — works for any backend (e.g. `LLM_MODEL=gpt-4o` to use OpenAI's bigger model)
 - `<BACKEND>_BASE_URL` — for self-hosted proxies or OpenAI-compatible services (e.g. LM Studio / Ollama → `LLM_BACKEND=openai` + `OPENAI_BASE_URL=http://localhost:1234/v1`)
-- `LLM_API_KEY` / `LLM_BASE_URL` — **generic aliases**, used as fallback when the provider-specific vars aren't set. Use this pair for Moonshot / SiliconFlow / OpenRouter / self-hosted proxies — anything not in the preset list — so you don't have to misuse `OPENAI_API_KEY` just to reach a non-OpenAI service. Example for Moonshot: `LLM_BACKEND=openai` + `LLM_API_KEY=sk-...` + `LLM_BASE_URL=https://api.moonshot.cn/v1` + `LLM_MODEL=moonshot-v1-8k`
+- `LLM_API_KEY` / `LLM_BASE_URL` — **generic aliases**, used as fallback when the provider-specific vars aren't set. Use this pair for Moonshot / SiliconFlow / OpenRouter / self-hosted proxies — anything not in the preset list — so you don't have to misuse `OPENAI_API_KEY` just to reach a non-OpenAI service
+
+### Verify the config is good
+
+Don't want to wait 5-8 min for a full `npm run daily` just to learn your key is wrong? This 30-second, 1-LLM-call command tells you fast:
+
+```bash
+npm run regen-enrich -- finance:news
+```
+
+Working: `[regen-enrich] enrichment done in 28s, matched 12/12`. Broken: the startup check stops it within 1 second and prints exactly what to fix (which key is missing, which `LLM_BACKEND` value to use).
 
 ### How to pick
 

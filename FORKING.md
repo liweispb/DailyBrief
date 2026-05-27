@@ -8,7 +8,7 @@ This project is intentionally easy to fork — most customization is single-file
 node scripts/install.mjs --at 07:30   # re-registers at 07:30 local time
 ```
 
-Times are local system time. Default is 16:00 (US market close + global news settled). Works on Windows / macOS / Linux.
+Times are local system time. Default is 08:00 (a morning brief — before market open, with trading commentary fresh for the day ahead). Works on Windows / macOS / Linux.
 
 ## Add / remove / disable a source
 

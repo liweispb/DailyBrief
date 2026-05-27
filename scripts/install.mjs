@@ -16,7 +16,7 @@
  *     session regardless of cwd
  *
  * Usage:
- *   node scripts/install.mjs                  # default 16:00, project-local skill
+ *   node scripts/install.mjs                  # default 08:00, project-local skill
  *   node scripts/install.mjs --at 07:30
  *   node scripts/install.mjs --global         # also install user-level skill
  *   node scripts/install.mjs --at 07:30 --global
@@ -32,7 +32,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
 
 function parseArgs(argv) {
-  const args = { at: "16:00", global: false };
+  const args = { at: "08:00", global: false };
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === "--at") args.at = argv[++i];
     else if (argv[i] === "--global") args.global = true;
@@ -46,7 +46,7 @@ const args = parseArgs(process.argv.slice(2));
 if (args.help) {
   console.log(`Usage: node scripts/install.mjs [--at HH:MM] [--global]
 
-  --at HH:MM   Daily trigger time (24-hour, local). Default: 16:00
+  --at HH:MM   Daily trigger time (24-hour, local). Default: 08:00
   --global     Also link skill/commands to user-level ~/.claude/ so they
                work from any Claude Code session, not just one in the
                project directory.
@@ -55,7 +55,7 @@ if (args.help) {
 }
 
 if (!/^\d{2}:\d{2}$/.test(args.at)) {
-  throw new Error(`Invalid --at value '${args.at}'. Use HH:MM (24-hour) like '16:00' or '07:30'.`);
+  throw new Error(`Invalid --at value '${args.at}'. Use HH:MM (24-hour) like '08:00' or '07:30'.`);
 }
 
 const wrapperPath = path.join(projectRoot, "scripts", "run-daily.mjs");

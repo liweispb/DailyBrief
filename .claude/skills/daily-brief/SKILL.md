@@ -5,7 +5,7 @@ description: Operational knowledge for the daily-brief digest pipeline (this pro
 
 # daily-brief — Operational Skill
 
-This project generates a single-page HTML daily digest covering tech / finance / politics / market data / community discussion. The pipeline runs locally via the OS scheduler (Windows Task Scheduler / macOS launchd / Linux cron, default 16:00 local time) and emits `daily_reports/<YYYY-MM-DD>/<YYYY-MM-DD>.html` + sidecar files (each date gets its own subdir). The date label uses the system local timezone by default — set `REPORT_TZ` (e.g. `Asia/Shanghai`, `UTC`) in `.env.local` to override.
+This project generates a single-page HTML daily digest covering tech / finance / politics / market data / community discussion. The pipeline runs locally via the OS scheduler (Windows Task Scheduler / macOS launchd / Linux cron, default 08:00 local time) and emits `daily_reports/<YYYY-MM-DD>/<YYYY-MM-DD>.html` + sidecar files (each date gets its own subdir). The date label uses the system local timezone by default — set `REPORT_TZ` (e.g. `Asia/Shanghai`, `UTC`) in `.env.local` to override.
 
 Detailed architecture lives in code; this skill is a cheat sheet for **operating** and **diagnosing**, not a re-explanation of the system.
 
@@ -173,7 +173,7 @@ L1 tabs in order: `tech / trading / politics / finance / community`
 | Linux | crontab entry tagged `# daily-brief` | ✗ cron doesn't fire while suspended — run skipped |
 
 Common:
-- Default trigger: **16:00 local time** (`--at HH:MM` to change)
+- Default trigger: **08:00 local time** (`--at HH:MM` to change)
 - Runs as current interactive user — required because claude CLI's OAuth token lives in user profile
 - Execution timeout: 30 min (Windows only; macOS/Linux no built-in timeout)
 - Set up: `node scripts/install.mjs [--at HH:MM] [--global]`

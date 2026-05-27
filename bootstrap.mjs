@@ -26,7 +26,7 @@ import { execSync, spawnSync } from "node:child_process";
 
 const REPO_DEFAULT = "https://github.com/leiting-eric/DailyBrief.git";
 const TARGET_DEFAULT = path.join(os.homedir(), "daily-brief");
-const AT_DEFAULT = "16:00";
+const AT_DEFAULT = "08:00";
 
 function parseArgs(argv) {
   const args = {

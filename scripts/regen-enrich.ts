@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { enrichFinanceNewsSummaries } from "../lib/ai/enrich";
+import { validateBackendCredentials } from "../lib/ai/llm";
 import type { ArticleInput } from "../lib/ai/pipeline";
 import { sources, REPORT_LOCALE } from "../lib/sources/registry";
 import {
@@ -28,6 +29,8 @@ const OUTPUT_DIR = "daily_reports";
  * Follow up with `npm run render` to refresh HTML.
  */
 async function main() {
+  validateBackendCredentials();
+
   const target = process.argv[2];
   const date = process.argv[3] || todayKey();
   if (!target || !target.includes(":")) {

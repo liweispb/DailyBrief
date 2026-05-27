@@ -9,7 +9,7 @@ import {
   generateDailyReport,
   type ArticleInput,
 } from "../lib/ai/pipeline";
-import { getModelTag } from "../lib/ai/llm";
+import { getModelTag, validateBackendCredentials } from "../lib/ai/llm";
 import {
   enrichFinanceNewsSummaries,
   enrichGithubTrendingSummaries,
@@ -212,6 +212,10 @@ async function runTrading(): Promise<TradingSection | null> {
 }
 
 async function main() {
+  // Fail fast on misconfigured backend before we spend 30s fetching
+  // 500+ articles only to discover the LLM has no credentials.
+  validateBackendCredentials();
+
   const date = todayKey();
   console.log(`[daily] ${date} — fetching sources…\n`);
   const articles = await fetchAll();
