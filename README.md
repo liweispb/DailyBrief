@@ -7,12 +7,12 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node 20+](https://img.shields.io/badge/node-20%2B-brightgreen.svg)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6.svg)](https://www.typescriptlang.org/)
-[![LLM: pluggable](https://img.shields.io/badge/LLM-pluggable%20(5%20backends)-orange.svg)](#-llm-后端配置)
+[![LLM: pluggable](https://img.shields.io/badge/LLM-pluggable%20(6%20backends)-orange.svg)](#-llm-后端配置)
 [![Deploy: GH Actions](https://img.shields.io/badge/deploy-GitHub%20Actions-2088ff.svg)](#a-github-actions--pages零基础设施推荐)
 [![Demo: live](https://img.shields.io/badge/demo-leiting--eric.github.io%2FDailyBrief-brightgreen.svg)](https://leiting-eric.github.io/DailyBrief)
 [![Stars](https://img.shields.io/github/stars/leiting-eric/DailyBrief?style=social)](https://github.com/leiting-eric/DailyBrief)
 
-> **你的私人 AI 每日简报，跑在你自己掌控的基础设施上。** 23 个数据源 · LLM 摘要 · 21 个股票/加密标的**技术指标 + AI 交易点评** · 中英双语 · 5 个 LLM 后端可选。
+> **你的私人 AI 每日简报，跑在你自己掌控的基础设施上。** 默认启用 26 个数据源 · LLM 摘要 · 21 个股票/加密标的**技术指标 + AI 交易点评** · 中英双语 · 6 个 LLM 后端可选。
 >
 > **三种部署任选**：[**🚀 5 分钟 Fork 到 GitHub Actions**](#a-github-actions--pages零基础设施推荐) · [**💻 本地一键装**](#b-本地一键装) · [**🤖 一句话让 AI Agent 帮你装**](#c-给-ai-agent-一句话装)。
 
@@ -25,9 +25,9 @@
 
 ## ✨ 核心特性
 
-- **🌍 全网多源聚合**：23 个数据源覆盖硅谷科技、AI 前沿、全球财经、国际时政、中文社区，一份报告通吃
+- **🌍 全网多源聚合**：默认启用 26 个数据源，覆盖硅谷科技、AI 前沿、全球财经、国际时政、中文社区，一份报告通吃
 - **📈 21 个标的实时行情**：美股 / 加密 / 港股 / 商品外汇 / 宏观信号，附 SMA / RSI / MACD 技术指标 + LLM 每日交易点评
-- **🤖 5 个 LLM 后端可插拔**：Claude CLI / Anthropic / OpenAI / DeepSeek / MiniMax，一个环境变量切换，不绑死任何家
+- **🤖 6 个 LLM 后端可插拔**：Claude CLI / Anthropic / OpenAI / DeepSeek / MiniMax / Zhipu，一个环境变量切换，不绑死任何家
 - **🌐 中英双语**：`REPORT_LOCALE=en` 一切——数据源、prompt、UI 文案、Bullish/Bearish stance 全套切英文
 - **🚀 部署灵活**：GitHub Actions（零基础设施）/ 本地系统调度器 / 自托管服务器三选一，互不冲突可并存
 - **🆓 数据源零 API key**：所有源走免费公开端点（RSS / 公开 JSON），不需要付费订阅
@@ -38,7 +38,7 @@
 
 ## 📚 信源图谱
 
-23 个数据源（zh 模式）/ 22 个（en 模式），分布如下：
+当前 registry 共 53 个源，默认启用 26 个；按 locale 过滤后 zh 模式有效 24 个、en 模式有效 23 个，分布如下：
 
 ### 🧑‍💻 技术动态
 
@@ -82,7 +82,7 @@
 
 | 方式 | 适合谁 | 你需要 | 几分钟搞定 |
 |---|---|---|---|
-| **A. GitHub Actions + Pages** | 没服务器、不想常开电脑 | 一个 API key（Anthropic / OpenAI / DeepSeek / MiniMax 任一） | ~5 分钟（推荐） |
+| **A. GitHub Actions + Pages** | 没服务器、不想常开电脑 | 一个 API key（Anthropic / OpenAI / DeepSeek / MiniMax / Zhipu 任一） | ~5 分钟（推荐） |
 | **B. 本地一键装** | 有常开的电脑/服务器、想极致便宜 | Node 20+，可选 Claude Code 登录 | ~3 分钟 |
 | **C. 给 AI Agent 一句话** | 懒、想让 Cursor / Codex / Claude Code 帮你装 | 同上 | 一句话 |
 
@@ -101,6 +101,7 @@
    | 🐋 **DeepSeek**（便宜大碗，中文友好） | `DEEPSEEK_API_KEY` | `deepseek` | ~$0.01-0.02 / 天，月 < $1 |
    | 🟢 **OpenAI** | `OPENAI_API_KEY` | `openai` | gpt-4o-mini ~$0.02 / 天 |
    | 🔵 **MiniMax** | `MINIMAX_API_KEY` | `minimax` | 类似 DeepSeek 量级 |
+   | 🧠 **Zhipu / 智谱** | `ZHIPU_API_KEY` | `zhipu` | 看服务方定价 |
    | 🌀 **中转站 / 反代 / 其他 OpenAI 兼容服务**（Moonshot / SiliconFlow / OpenRouter / 自建 Claude 反代 / 本地 Ollama / LM Studio 等） | `LLM_API_KEY` | `openai`（极少数 Anthropic 协议反代填 `anthropic`） | 看服务方定价 |
 
    位置：**Settings → Secrets and variables → Actions**，左边切换 Secrets / Variables 两个标签。
@@ -118,7 +119,7 @@
 
 跑完后报告在 `https://<你的用户名>.github.io/<repo-名字>/`。之后**默认每天 `REPORT_TZ` 时区的 08:00 自动更新**（不设 `REPORT_TZ` 就是 UTC 08:00）。
 
-> ⏰ **触发机制**：GitHub Actions 的 cron 只接受 UTC，所以工作流 cron 设置为**每小时跑一次**，里面有一个 `gate` 任务用 `REPORT_TZ` 把当前小时和 `REPORT_HOUR/REPORT_DAYS` 对照——匹配才往下跑 build，否则秒退。这样不论你在哪个时区都能精准命中本地时间，**夏令时也自动跟着切换**（IANA 时区数据库内置）。
+> ⏰ **触发机制**：GitHub Actions 的 cron 只接受 UTC，所以工作流 cron 设置为**每小时探测两次**，里面有一个 `gate` 任务用 `REPORT_TZ` 把当前小时和 `REPORT_HOUR/REPORT_DAYS` 对照——匹配才往下跑 build，否则秒退。这样不论你在哪个时区都能精准命中本地时间，**夏令时也自动跟着切换**（IANA 时区数据库内置）。
 
 **常用 schedule 配方：**
 
@@ -142,6 +143,7 @@
 - **Variable name 报 "alphanumeric only"** —— 输入 `LLM_BACKEND` 时下划线被中文输入法替换成了全角 `＿`（U+FF3F）。切到英文输入法 Shift+`-` 重打
 - **第一次跑完才能选 Pages source** —— Pages 设置页要求选已存在的分支，但 `gh-pages` 是首次 workflow 跑成功后才创建出来。顺序：配 secret → 触发 workflow → 跑完 → 回 Settings → Pages 选 `gh-pages`
 - **Action 红 X 怎么看具体原因** —— 点失败的 build → 左边列出每个 step → 找有红 X 的那步点开看 log。最常见两类：`401/402` = API key 拼错或没余额；`403` = workflow permissions 没设成 Read and write
+- **自动触发只跑了 `gate`，后面的 build 被 skipped** —— 这是调度门禁在工作，不一定是失败。点开那次 run → `gate` → `Check schedule`，看 `Now in ...`、`Configured REPORT_HOUR=...` 和 `No match — skipping (...)`。最常见原因是没在 **Repository Variables** 里设置 `REPORT_TZ=Asia/Shanghai`，此时默认按 UTC 08:00 触发（北京时间 16:00）。如果变量放在 **Settings → Environments** 里，默认 workflow 也读不到；请移到 **Settings → Secrets and variables → Actions → Variables**，或给 `gate` / `build` 两个 job 都加同一个 `environment: <name>`
 - **报错 `ANTHROPIC_API_KEY (or generic LLM_API_KEY) is required`，但我填的是别家的 key** —— 经典 secret/variable 不配对。Workflow 默认 `LLM_BACKEND=anthropic`，光填 `DEEPSEEK_API_KEY` / `OPENAI_API_KEY` 不够，**必须同时去 Variables 标签加 `LLM_BACKEND=deepseek` / `openai`**。从 v1.x 起启动期会直接告诉你哪个 key 已设、应该把 `LLM_BACKEND` 改成什么
 - **配齐了 secret + variable 还是报同样的错** —— 99% 是配置放错了作用域。GitHub 上有两个长得几乎一样的页面：
   - ✅ **Settings → Secrets and variables → Actions**（页眉是 "Repository secrets" / "Repository variables"）—— 本项目默认走这里
@@ -171,7 +173,7 @@ irm https://raw.githubusercontent.com/leiting-eric/DailyBrief/main/bootstrap.mjs
 6. 在 `~/.claude/` 建符号链接让 Claude Code 的 skill 和 slash command 全局可用
 7. 跑一次 `npm run dry-run` 烟测
 
-**🎁 Claude Code 用户额外福利**：装完后任意目录都能 `/run-daily`、`/check-daily`，描述问题（"日报又挂了"）也能触发 `daily-brief` skill 自动加载。**其他 agent**（Cursor / Codex）没有 skill 加载机制，但定时任务跑得起来。手动触发用：
+**Claude Code 集成**：使用 `--global` 安装后，可以在任意目录运行 `/run-daily` 和 `/check-daily`；描述问题时也会加载项目内的 `daily-brief` skill。Cursor / Codex 等其他 agent 不使用这套 skill/command 机制，但不影响系统定时任务运行。手动触发命令：
 
 | 平台 | 手动触发 |
 |---|---|
@@ -185,7 +187,7 @@ irm https://raw.githubusercontent.com/leiting-eric/DailyBrief/main/bootstrap.mjs
 node bootstrap.mjs --target /custom/path --at 07:30
 ```
 
-**LLM 后端**：默认走本地 `claude` CLI（首次需在浏览器登录一次：`echo "hi" | claude --print --model sonnet`，登录后永久生效）。不用 Claude Code，或想换模型 / 换家 / 接中转，都在 `.env.local` 里改 —— 完整可复制的配置示例见下方 [🤖 LLM 后端配置](#-llm-后端配置)。
+**LLM 后端**：默认走本地 `claude` CLI（首次需在浏览器登录一次：`echo "hi" | claude --print --model sonnet`，通常会长期有效；如果遇到 401 / 认证失败，重新运行 `claude` 登录）。不用 Claude Code，或想换模型 / 换家 / 接中转，都在 `.env.local` 里改 —— 完整可复制的配置示例见下方 [🤖 LLM 后端配置](#-llm-后端配置)。
 
 ### C. 给 AI Agent 一句话装
 
@@ -297,8 +299,8 @@ REPORT_LOCALE=zh    # 默认 — 中文 mode，含 V2EX / LinuxDo / DW 中文等
 
 | Locale | 启用源数 | 主要构成 |
 |---|---|---|
-| `zh` | 23 | 20 个全球英文源（附中文摘要）+ 3 个中文专属（V2EX / LinuxDo / DW 中文）|
-| `en` | 22 | 20 个全球英文源 + 2 个英文社区（Hacker News + r/stocks）|
+| `zh` | 24 | 21 个全球英文源（附中文摘要）+ 3 个中文专属（V2EX / LinuxDo / DW 中文）|
+| `en` | 23 | 21 个全球英文源 + 2 个英文社区（Hacker News + r/stocks）|
 
 英文 mode 完整切换：HTML UI 文案、enrichment / digest / trading-commentary 三套 prompt、stance 词（"偏上行/偏下行/中性" → Bullish/Bearish/Neutral）、日期格式（zh-CN → en-GB）、Markdown 输出 —— 全部跟着 `REPORT_LOCALE` 切。**中文社区源在英文 mode 下被自动过滤掉**。
 
@@ -310,7 +312,7 @@ REPORT_LOCALE=zh    # 默认 — 中文 mode，含 V2EX / LinuxDo / DW 中文等
 
 ### 配置文件在哪
 
-**本地安装**：所有 LLM 配置都在仓库根目录的 `.env.local`（被 gitignore 了，安全存 key）。第一次没有这个文件就 `cp .env.example .env.local`，编辑器打开按 backend 解开对应几行即可。改完保存就生效，不用重启 shell —— 所有入口脚本（`npm run daily` / `regen-trading` / `regen-enrich`）第一行都会 dotenv 预加载它。
+**本地安装**：所有 LLM 配置都在仓库根目录的 `.env.local`（被 gitignore 了，安全存 key）。第一次没有这个文件就 `cp .env.example .env.local`，编辑器打开按 backend 解开对应几行即可。改完保存就生效，不用重启 shell —— 这些 TS pipeline 入口（`npm run daily` / `regen-trading` / `regen-enrich`）第一行都会 dotenv 预加载它。
 
 **GitHub Actions 部署**：不需要 `.env.local`，改成在 Settings → Secrets and variables → Actions 里加（见上面 [A 方式](#a-github-actions--pages零基础设施推荐) 第 4 步）。
 
@@ -323,6 +325,7 @@ REPORT_LOCALE=zh    # 默认 — 中文 mode，含 V2EX / LinuxDo / DW 中文等
 | 🟢 `openai` | `OPENAI_API_KEY` | `gpt-4o-mini` | `api.openai.com/v1` |
 | 🐋 `deepseek` | `DEEPSEEK_API_KEY` | `deepseek-v4-flash` | `api.deepseek.com/v1` |
 | 🔵 `minimax` | `MINIMAX_API_KEY` | `MiniMax-M2.7` | `api.minimax.io/v1` <sup>1</sup> |
+| 🧠 `zhipu` | `ZHIPU_API_KEY` | `claude-sonnet-4-6` | `open.bigmodel.cn/api/anthropic` |
 
 <sup>1</sup> 中国大陆访问设 `MINIMAX_BASE_URL=https://api.minimaxi.com/v1`。
 
@@ -351,6 +354,11 @@ OPENAI_API_KEY=sk-...
 LLM_BACKEND=minimax
 MINIMAX_API_KEY=...
 # MINIMAX_BASE_URL=https://api.minimaxi.com/v1   # 国内访问用这条
+
+# Zhipu / 智谱（Anthropic 协议兼容）
+LLM_BACKEND=zhipu
+ZHIPU_API_KEY=...
+# ZHIPU_BASE_URL=https://open.bigmodel.cn/api/anthropic
 
 # 中转 / 反代 / OpenAI 兼容服务（Moonshot / SiliconFlow / OpenRouter / Ollama / LM Studio …）
 LLM_BACKEND=openai                   # 协议是 openai 兼容就填 openai
@@ -387,7 +395,7 @@ npm run regen-enrich -- finance:news
 | 已经在用 Claude Code（任意订阅等级）| `claude-cli` — 零配置，按你订阅的等级走 |
 | 不用 Claude Code，只想低成本跑日报 | `openai` 配 `gpt-4o-mini`、或 `deepseek` 配 `deepseek-v4-flash`（更便宜）|
 | 中文摘要质量优先，预算可放宽 | `anthropic` 配 `claude-sonnet-4-6` |
-| 国内网络访问，要规避 GFW | `deepseek` 或 `minimax`（都是国内厂商）|
+| 国内网络访问，要规避 GFW | `deepseek`、`minimax` 或 `zhipu`（都是国内厂商）|
 
 **切 backend 不需要改代码**：所有 prompt 都在 `lib/ai/prompts.ts` 抽离，跟 backend 无关；JSON 错误兜底（`jsonrepair`）也是 backend-agnostic。切完后跑一次 `npm run daily`，进 `logs/llm-calls.jsonl` 看新 backend 的调用记录。
 
@@ -467,7 +475,7 @@ daily-brief/
 │   ├── output/         # 渲染层 (HTML / Markdown)
 │   └── utils.ts        # 小工具（todayKey / getReportTz）
 ├── scripts/
-│   ├── _env.ts         # dotenv 预加载（被所有入口脚本第一个 import）
+│   ├── _env.ts         # dotenv 预加载（被 TS pipeline 入口第一个 import）
 │   ├── daily.ts        # 主管线
 │   ├── dry-run.ts      # 只抓取不调 LLM，验证数据源
 │   ├── render.ts       # 重渲染
@@ -531,12 +539,12 @@ MIT
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node 20+](https://img.shields.io/badge/node-20%2B-brightgreen.svg)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6.svg)](https://www.typescriptlang.org/)
-[![LLM: pluggable](https://img.shields.io/badge/LLM-pluggable%20(5%20backends)-orange.svg)](#-llm-backend-configuration)
+[![LLM: pluggable](https://img.shields.io/badge/LLM-pluggable%20(6%20backends)-orange.svg)](#-llm-backend-configuration)
 [![Deploy: GH Actions](https://img.shields.io/badge/deploy-GitHub%20Actions-2088ff.svg)](#a-github-actions--pages-zero-infra-recommended)
 [![Demo: live](https://img.shields.io/badge/demo-leiting--eric.github.io%2FDailyBrief-brightgreen.svg)](https://leiting-eric.github.io/DailyBrief)
 [![Stars](https://img.shields.io/github/stars/leiting-eric/DailyBrief?style=social)](https://github.com/leiting-eric/DailyBrief)
 
-> **Your own AI-curated daily news brief, on infrastructure you control.** 23 sources · LLM summaries · 21-ticker market panel with SMA/RSI/MACD signals + AI commentary · bilingual (zh/en) · 5 swappable LLM backends.
+> **Your own AI-curated daily news brief, on infrastructure you control.** 26 sources enabled by default · LLM summaries · 21-ticker market panel with SMA/RSI/MACD signals + AI commentary · bilingual (zh/en) · 6 swappable LLM backends.
 >
 > **Three deployment paths, pick one:** [**🚀 5-min GitHub Actions fork**](#a-github-actions--pages-zero-infra-recommended) · [**💻 local one-liner install**](#b-local-one-liner-install) · [**🤖 have an AI agent install it for you**](#c-have-an-ai-agent-install-it-for-you).
 
@@ -549,9 +557,9 @@ MIT
 
 ## ✨ Core features
 
-- **🌍 Multi-source aggregation** — 23 sources spanning Silicon Valley tech, AI frontier, global finance, international politics, and developer communities. One report covers it all.
+- **🌍 Multi-source aggregation** — 26 sources enabled by default, spanning Silicon Valley tech, AI frontier, global finance, international politics, and developer communities. One report covers it all.
 - **📈 21 live tickers** — US stocks / crypto / HK / commodities / macro signals, with SMA / RSI / MACD indicators + daily LLM-written trading commentary
-- **🤖 5 swappable LLM backends** — Claude CLI / Anthropic / OpenAI / DeepSeek / MiniMax. One env var to switch, no vendor lock-in.
+- **🤖 6 swappable LLM backends** — Claude CLI / Anthropic / OpenAI / DeepSeek / MiniMax / Zhipu. One env var to switch, no vendor lock-in.
 - **🌐 Bilingual (zh/en)** — set `REPORT_LOCALE=en` to flip the entire stack: sources, prompts, UI text, Bullish/Bearish stance labels — all switch.
 - **🚀 Flexible deployment** — GitHub Actions (zero infra) / local OS scheduler / self-hosted server — pick one or run them in parallel
 - **🆓 Zero data-source API keys** — every source uses free public endpoints (RSS / public JSON), no paid subscriptions
@@ -562,7 +570,7 @@ MIT
 
 ## 📚 Source roster
 
-23 sources in zh mode / 22 in en mode, organized as:
+The registry currently contains 53 sources, with 26 enabled by default. After locale filtering, zh mode uses 24 active sources and en mode uses 23:
 
 ### 🧑‍💻 Tech
 
@@ -606,7 +614,7 @@ MIT
 
 | Path | Who it's for | What you need | Setup time |
 |---|---|---|---|
-| **A. GitHub Actions + Pages** | No server, don't want to keep a laptop running | One API key (Anthropic / OpenAI / DeepSeek / MiniMax) | ~5 min (recommended) |
+| **A. GitHub Actions + Pages** | No server, don't want to keep a laptop running | One API key (Anthropic / OpenAI / DeepSeek / MiniMax / Zhipu) | ~5 min (recommended) |
 | **B. Local one-liner** | Have an always-on machine; want it cheapest | Node 20+, optionally Claude Code login | ~3 min |
 | **C. Have an AI agent install it** | Lazy; want Cursor / Codex / Claude Code to handle setup | Same as B | One sentence |
 
@@ -625,6 +633,7 @@ MIT
    | 🐋 **DeepSeek** (cheap, China-friendly) | `DEEPSEEK_API_KEY` | `deepseek` | ~$0.01-0.02/day, <$1/month |
    | 🟢 **OpenAI** | `OPENAI_API_KEY` | `openai` | gpt-4o-mini ~$0.02/day |
    | 🔵 **MiniMax** | `MINIMAX_API_KEY` | `minimax` | Similar to DeepSeek |
+   | 🧠 **Zhipu** | `ZHIPU_API_KEY` | `zhipu` | Depends on provider |
    | 🌀 **Proxy / aggregator / any OpenAI-compatible service** (Moonshot, SiliconFlow, OpenRouter, self-hosted Claude relay, local Ollama / LM Studio, ...) | `LLM_API_KEY` | `openai` (use `anthropic` only if the proxy speaks Anthropic protocol — rare) | Depends on provider |
 
    Location: **Settings → Secrets and variables → Actions**. The page has two tabs — **Secrets** for keys, **Variables** for `LLM_BACKEND`.
@@ -642,7 +651,7 @@ MIT
 
 Once the workflow turns green, your report lives at `https://<your-username>.github.io/<repo-name>/`. After that, **it refreshes daily at 08:00 in `REPORT_TZ`** (or 08:00 UTC if `REPORT_TZ` is unset).
 
-> ⏰ **How the schedule works**: GitHub Actions cron is UTC-only, so the workflow runs **hourly** and uses a `gate` job to check if the current hour in `REPORT_TZ` matches `REPORT_HOUR` / `REPORT_DAYS`. If so, the build job proceeds; otherwise it exits in seconds. This lets the schedule track any local timezone precisely, and **handles DST transitions automatically** (via the IANA tz database).
+> ⏰ **How the schedule works**: GitHub Actions cron is UTC-only, so the workflow probes **twice per hour** and uses a `gate` job to check if the current hour in `REPORT_TZ` matches `REPORT_HOUR` / `REPORT_DAYS`. If so, the build job proceeds; otherwise it exits in seconds. This lets the schedule track any local timezone precisely, and **handles DST transitions automatically** (via the IANA tz database).
 
 **Common schedule recipes:**
 
@@ -666,6 +675,7 @@ If you just want the default (08:00 local daily), **set only `REPORT_TZ`** (e.g.
 - **"Variable name can only contain alphanumeric characters"** — most likely the underscore in `LLM_BACKEND` got autocorrected by a CJK input method to a full-width `＿` (U+FF3F). Switch to English input, retype Shift+`-`, or copy-paste.
 - **Pages source dropdown doesn't show `gh-pages`** — that branch only exists after the first successful workflow run. Order: configure secret → trigger workflow → wait for green → go back to Settings → Pages.
 - **Where to read a failed run** — Actions tab → click the red X → left sidebar lists each step → click the failing one to expand its log. Most common causes: `401`/`402` (API key wrong or out of credit), `403` (workflow permissions still set to "Read only").
+- **Scheduled runs only execute `gate`, then build is skipped** — this is the schedule gate doing its job, not necessarily a failure. Open that run → `gate` → `Check schedule`, then inspect `Now in ...`, `Configured REPORT_HOUR=...`, and `No match — skipping (...)`. The most common cause is missing `REPORT_TZ=Asia/Shanghai` in **Repository Variables**, so the default is UTC 08:00 (16:00 in Beijing). Variables stored under **Settings → Environments** are invisible to the default workflow; move them to **Settings → Secrets and variables → Actions → Variables**, or add the same `environment: <name>` to both the `gate` and `build` jobs.
 - **Error: `ANTHROPIC_API_KEY (or generic LLM_API_KEY) is required` — but I set a different provider's key** — classic secret-without-variable mismatch. The workflow defaults `LLM_BACKEND=anthropic`; setting `DEEPSEEK_API_KEY` / `OPENAI_API_KEY` alone is not enough — you **also need to add the matching `LLM_BACKEND=deepseek` / `openai` under Variables**. As of v1.x the startup check prints exactly which key it found and which `LLM_BACKEND` value to set.
 - **I added both the secret and variable, still the same error** — 99% sure your values went into the wrong scope. GitHub has two near-identical-looking pages:
   - ✅ **Settings → Secrets and variables → Actions** (header reads "Repository secrets" / "Repository variables") — this is the default this project uses
@@ -695,7 +705,7 @@ This script will:
 6. Symlink the Claude Code skill + slash commands into `~/.claude/` so they work from any directory
 7. Run `npm run dry-run` as a smoke test
 
-**🎁 Claude Code bonus**: after install, any Claude Code session anywhere can use `/run-daily` and `/check-daily`. Describing a problem in plain English ("today's report didn't come out") also auto-loads the `daily-brief` skill. **Other agents** (Cursor / Codex) don't have a skill auto-load mechanism, but the scheduled task still runs at the OS level. Manual triggers:
+**Claude Code integration**: after installing with `--global`, Claude Code can use `/run-daily` and `/check-daily` from any directory, and plain-language troubleshooting prompts can load the bundled `daily-brief` skill. Other agents such as Cursor and Codex do not use this skill/command mechanism, but the OS scheduled task still works. Manual triggers:
 
 | Platform | Command |
 |---|---|
@@ -709,7 +719,7 @@ Custom install path / time:
 node bootstrap.mjs --target /custom/path --at 07:30
 ```
 
-**LLM backend**: defaults to the local `claude` CLI (first time you'll need to log in once in a browser: `echo "hi" | claude --print --model sonnet` — once is forever). To skip Claude Code, change the model, switch providers, or point at a proxy — edit `.env.local`. Copy-paste recipes are in [🤖 LLM backend configuration](#-llm-backend-configuration) below.
+**LLM backend**: defaults to the local `claude` CLI (first time you'll need to log in once in a browser: `echo "hi" | claude --print --model sonnet`; it usually stays valid for a long time, but rerun `claude` login if you see 401 / authentication failures). To skip Claude Code, change the model, switch providers, or point at a proxy — edit `.env.local`. Copy-paste recipes are in [🤖 LLM backend configuration](#-llm-backend-configuration) below.
 
 ### C. Have an AI agent install it for you
 
@@ -821,10 +831,10 @@ Currently enabled sources by locale:
 
 | Locale | Enabled sources | Mix |
 |---|---|---|
-| `zh` | 23 | 20 global / English sources (with LLM-generated Chinese summaries) + 3 Chinese-only (V2EX / LinuxDo / DW Chinese) |
-| `en` | 22 | 20 global / English sources + 2 English community (Hacker News + r/stocks) |
+| `zh` | 24 | 21 global / English sources (with LLM-generated Chinese summaries) + 3 Chinese-only (V2EX / LinuxDo / DW Chinese) |
+| `en` | 23 | 21 global / English sources + 2 English community (Hacker News + r/stocks) |
 
-The full en-mode switch covers: HTML UI text, the three LLM prompt sets (enrichment / digest / trading commentary), stance labels (Bullish/Bearish/Neutral vs. 偏上行/偏下行/中性), date format (`zh-CN` ↔ `en-GB`), Markdown output. **Chinese community sources are auto-hidden in en mode** since the audience can't read them.
+The full en-mode switch covers: HTML UI text, the three LLM prompt sets (enrichment / digest / trading commentary), stance labels (Bullish/Bearish/Neutral vs. 偏上行/偏下行/中性), date format (`zh-CN` ↔ `en-GB`), Markdown output. **Chinese community sources are filtered out in en mode and replaced by en-only community sources** such as Hacker News and r/stocks.
 
 ---
 
@@ -834,7 +844,7 @@ The project switches backends via the `LLM_BACKEND` environment variable. **Defa
 
 ### Where the config lives
 
-**Local install**: everything goes in `.env.local` at the repo root (gitignored — safe place for keys). First time? `cp .env.example .env.local`, open it in your editor, uncomment the rows you need. Changes take effect on next run, no shell restart — every entry script (`npm run daily` / `regen-trading` / `regen-enrich`) dotenv-loads the file on its first line.
+**Local install**: everything goes in `.env.local` at the repo root (gitignored — safe place for keys). First time? `cp .env.example .env.local`, open it in your editor, uncomment the rows you need. Changes take effect on next run, no shell restart — these TS pipeline entry scripts (`npm run daily` / `regen-trading` / `regen-enrich`) dotenv-load the file on their first line.
 
 **GitHub Actions deploy**: no `.env.local` needed — set values under Settings → Secrets and variables → Actions instead (see [Path A](#a-github-actions--pages-zero-infra-recommended) step 4 above).
 
@@ -847,6 +857,7 @@ The project switches backends via the `LLM_BACKEND` environment variable. **Defa
 | 🟢 `openai` | `OPENAI_API_KEY` | `gpt-4o-mini` | `api.openai.com/v1` |
 | 🐋 `deepseek` | `DEEPSEEK_API_KEY` | `deepseek-v4-flash` | `api.deepseek.com/v1` |
 | 🔵 `minimax` | `MINIMAX_API_KEY` | `MiniMax-M2.7` | `api.minimax.io/v1` <sup>1</sup> |
+| 🧠 `zhipu` | `ZHIPU_API_KEY` | `claude-sonnet-4-6` | `open.bigmodel.cn/api/anthropic` |
 
 <sup>1</sup> Inside mainland China, set `MINIMAX_BASE_URL=https://api.minimaxi.com/v1`.
 
@@ -875,6 +886,11 @@ OPENAI_API_KEY=sk-...
 LLM_BACKEND=minimax
 MINIMAX_API_KEY=...
 # MINIMAX_BASE_URL=https://api.minimaxi.com/v1   # use this from mainland China
+
+# Zhipu (Anthropic-compatible protocol)
+LLM_BACKEND=zhipu
+ZHIPU_API_KEY=...
+# ZHIPU_BASE_URL=https://open.bigmodel.cn/api/anthropic
 
 # Proxy / aggregator / OpenAI-compatible service (Moonshot / SiliconFlow / OpenRouter / Ollama / LM Studio …)
 LLM_BACKEND=openai                       # most proxies speak OpenAI protocol
@@ -911,7 +927,7 @@ Working: `[regen-enrich] enrichment done in 28s, matched 12/12`. Broken: the sta
 | Already using Claude Code (any subscription tier) | `claude-cli` — zero config, billed against your subscription |
 | Not on Claude Code, want it cheapest | `openai` with `gpt-4o-mini`, or `deepseek` (cheaper still) |
 | Chinese summary quality matters most | `anthropic` with `claude-sonnet-4-6` |
-| Need to bypass China's network restrictions | `deepseek` or `minimax` (both are domestic providers) |
+| Need to bypass China's network restrictions | `deepseek`, `minimax`, or `zhipu` (domestic providers) |
 
 **Switching backends needs no code changes**: all prompts are factored out in `lib/ai/prompts.ts` independently of any backend; JSON repair fallback (`jsonrepair`) is backend-agnostic. After switching, run `npm run daily` once and look at `logs/llm-calls.jsonl` for the new backend's call log.
 
@@ -991,7 +1007,7 @@ daily-brief/
 │   ├── output/         # Rendering (HTML / Markdown)
 │   └── utils.ts        # Tiny shared helpers (todayKey / getReportTz)
 ├── scripts/
-│   ├── _env.ts         # dotenv preload — imported FIRST by every entry script
+│   ├── _env.ts         # dotenv preload — imported FIRST by TS pipeline entry scripts
 │   ├── daily.ts        # Main pipeline
 │   ├── dry-run.ts      # Fetch-only validation (no LLM)
 │   ├── render.ts       # Re-render from cached data

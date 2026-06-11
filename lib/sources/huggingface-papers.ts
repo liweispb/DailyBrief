@@ -37,6 +37,10 @@ export async function fetchHuggingfacePapers(
         .toLowerCase();
       return keywordList.some((kw) => haystack.includes(kw));
     })
+    // Rank by upvotes desc so the displayed top-N is "most liked", not
+    // the API's default order. groupRaw preserves this (huggingface-papers
+    // is in PRESERVE_FETCH_ORDER_SOURCES) instead of re-sorting by date.
+    .sort((a, b) => (b.paper.upvotes ?? 0) - (a.paper.upvotes ?? 0))
     .slice(0, limit)
     .map((p) => ({
       sourceId,

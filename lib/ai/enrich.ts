@@ -157,12 +157,62 @@ Output STRICTLY a JSON object, no markdown wrapping:
 
 **Quote rule (important!)**: For any quotation INSIDE a summary string, use single quotes ' or curly quotes '" — **never** a raw double quote, which breaks JSON parsing.`;
 
+const PAPERS_SYSTEM_PROMPT_ZH = `你是一名 AI 研究方向的中文编辑，为 HuggingFace 上的热门论文写**中文摘要**。
+
+输入：每篇论文有 url、title（英文标题）、excerpt（英文摘要开头）。
+
+任务：根据 title + excerpt，写一段 60-110 字的**中文摘要**，说清：
+  1. 这篇论文解决什么问题 / 提出什么方法
+  2. 核心技术思路（模型、训练方式、数据等，能从摘要推断的话）
+  3. 关键结果或贡献（有量化指标就保留，如准确率、加速比）
+
+写作风格：
+  - 信息密度高，不写"这篇论文…"这种废话开头
+  - 中文表达，专业术语 / 模型名 / 方法名保留英文（Transformer、RLHF、CoT、MoE 等）
+  - 事实陈述，不夸大、不标题党
+  - 信息不足宁可短，不要编造
+
+输出严格 JSON 对象，不要 markdown：
+{
+  "summaries": [
+    { "url": "<原 url，从输入中精确复制>", "summary": "<60-110 字中文摘要>" },
+    ...
+  ]
+}
+
+**引号规则（重要！）**：summary 内的引用一律用中文全角引号「」或""，**绝不**用英文双引号 \" —— 否则会导致 JSON 解析失败。`;
+
+const PAPERS_SYSTEM_PROMPT_EN = `You are an AI-research editor writing **English summaries** of trending HuggingFace papers.
+
+Input: each paper has url, title, and excerpt (start of the English abstract).
+
+Task: from title + excerpt, write a 60-110 word **English summary** covering:
+  1. What problem the paper tackles / what method it proposes
+  2. The core technical approach (model, training method, data — if inferable)
+  3. Key result or contribution (keep quantitative metrics if present)
+
+Style:
+  - High information density; avoid "This paper..." filler openings
+  - Keep model / method names in original form (Transformer, RLHF, CoT, MoE, etc.)
+  - Factual, no hype
+  - If info is insufficient, prefer shorter over fabrication
+
+Output STRICTLY a JSON object, no markdown:
+{
+  "summaries": [
+    { "url": "<exact url from input>", "summary": "<60-110 word English summary>" },
+    ...
+  ]
+}
+
+**Quote rule (important!)**: For any quotation INSIDE a summary string, use single quotes ' or curly quotes '" — **never** a raw double quote, which breaks JSON parsing.`;
+
 // Pick the right localized prompt set at module init. Each enricher reaches
 // in via PROMPTS.<key> so the call sites stay locale-agnostic.
 const PROMPTS =
   REPORT_LOCALE === "en"
-    ? { gh: GH_SYSTEM_PROMPT_EN, finance: FINANCE_SYSTEM_PROMPT_EN, xViral: XVIRAL_SYSTEM_PROMPT_EN }
-    : { gh: GH_SYSTEM_PROMPT_ZH, finance: FINANCE_SYSTEM_PROMPT_ZH, xViral: XVIRAL_SYSTEM_PROMPT_ZH };
+    ? { gh: GH_SYSTEM_PROMPT_EN, finance: FINANCE_SYSTEM_PROMPT_EN, xViral: XVIRAL_SYSTEM_PROMPT_EN, papers: PAPERS_SYSTEM_PROMPT_EN }
+    : { gh: GH_SYSTEM_PROMPT_ZH, finance: FINANCE_SYSTEM_PROMPT_ZH, xViral: XVIRAL_SYSTEM_PROMPT_ZH, papers: PAPERS_SYSTEM_PROMPT_ZH };
 
 const USER_PROMPT_HEADER =
   REPORT_LOCALE === "en"
@@ -298,4 +348,21 @@ export async function enrichXViralSummaries(
     previewText: (it.excerpt ?? "").slice(0, 280),
   }));
   return runEnrichment(payload, PROMPTS.xViral, "X-viral summaries");
+}
+
+/**
+ * Generate summaries for trending HuggingFace papers. Separate prompt
+ * from finance/GH because papers need a problem/method/result framing
+ * and the excerpt is an English research abstract.
+ */
+export async function enrichTrendingPapersSummaries(
+  items: EnrichInput[],
+): Promise<Map<string, string>> {
+  if (items.length === 0) return new Map();
+  const payload = items.map((it) => ({
+    url: it.url,
+    title: it.title,
+    excerpt: (it.excerpt ?? "").slice(0, 300),
+  }));
+  return runEnrichment(payload, PROMPTS.papers, "papers summaries");
 }

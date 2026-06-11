@@ -31,7 +31,7 @@ const TEXTS_ZH = {
   catTrading: "市场行情",
   catCommunity: "社区讨论",
   subAiNews: "AI 媒体",
-  subTrendingPapers: "Trending Papers",
+  subTrendingPapers: "热门论文",
   subXViral: "X 推文",
   subBlogWeekly: "博客周刊",
   subCnCommunity: "中文社区",
@@ -203,6 +203,7 @@ const SOURCE_DISPLAY_LIMITS: Record<string, number> = {
   "tech:github-trending": 20,
   "tech:cn-community": 10,
   "tech:x-viral": 20,
+  "tech:trending-papers": 20,
 };
 
 /**
@@ -210,7 +211,10 @@ const SOURCE_DISPLAY_LIMITS: Record<string, number> = {
  * algorithm we want to preserve. groupRaw skips its default date-desc sort
  * for these so the final render reflects the source's own ranking.
  */
-const PRESERVE_FETCH_ORDER_SOURCES = new Set(["attentionvc-ai"]);
+const PRESERVE_FETCH_ORDER_SOURCES = new Set([
+  "attentionvc-ai",
+  "huggingface-papers",
+]);
 
 function displayLimitFor(
   category: Category,
