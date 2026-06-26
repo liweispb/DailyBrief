@@ -6,160 +6,160 @@
       "title": "google-labs-code/design.md",
       "url": "https://github.com/google-labs-code/design.md",
       "excerpt": "A format specification for describing a visual identity to coding agents. DESIGN.md gives agents a persistent, structured understanding of a design system.",
-      "meta": "TypeScript · ★ 19,128 · 🍴 1,644 · 📈 1,407 stars today",
+      "meta": "TypeScript · ★ 19,155 · 🍴 1,645 · 📈 1,475 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "为编程代理提供设计系统结构化描述规范，通过标准化格式使AI持久理解视觉规范，解决设计一致性维护问题。开发者与设计团队用于集成设计系统到开发流程。"
+      "summary": "设计系统规范文档，为编码代理提供结构化视觉身份描述，帮助AI持续理解设计规范，适用于前端开发与设计工具集成场景。"
     },
     {
       "sourceId": "github-trending",
       "title": "calesthio/OpenMontage",
       "url": "https://github.com/calesthio/OpenMontage",
       "excerpt": "World's first open-source, agentic video production system. 12 pipelines, 52 tools, 500+ agent skills. Turn your AI coding assistant into a full video production studio.",
-      "meta": "Python · ★ 22,012 · 🍴 2,471 · 📈 3,553 stars today",
+      "meta": "Python · ★ 22,036 · 🍴 2,474 · 📈 3,434 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "首个开源AI视频生产系统，集成12条流水线、52工具和500+代理技能，将编程助手升级为视频工作室。内容创作者通过多代理协作实现自动化视频制作。"
+      "summary": "全球首个开源视频生产系统，集成12条流水线、52种工具和500+代理技能，将AI编程助手升级为完整视频制作工作室，适合内容创作者与团队。"
     },
     {
       "sourceId": "github-trending",
       "title": "xbtlin/ai-berkshire",
       "url": "https://github.com/xbtlin/ai-berkshire",
       "excerpt": "AI 时代的伯克希尔：基于 Claude Code 的价值投资研究框架。巴菲特·芒格·段永平·李录四大师方法论 + 多Agent并行研究。| AI-era Berkshire: a value investing research framework built on Claude Code. 4 masters' methodologies + multi-agent adversarial analysis.",
-      "meta": "Python · ★ 1,824 · 🍴 295 · 📈 201 stars today",
+      "meta": "Python · ★ 1,843 · 🍴 295 · 📈 309 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "基于Claude Code构建的AI价值投资框架，融合巴菲特等四位大师方法论，通过多代理并行研究提升投资决策效率。金融分析师用于构建智能投研系统。"
+      "summary": "基于Claude Code的价值投资研究框架，融合巴菲特等四位大师方法论，通过多Agent并行分析实现投资决策支持，适用于量化投资者与金融分析场景。"
     },
     {
       "sourceId": "github-trending",
       "title": "mauriceboe/TREK",
       "url": "https://github.com/mauriceboe/TREK",
       "excerpt": "A self-hosted travel/trip planner with real-time collaboration, interactive maps, PWA support, SSO, budgets, packing lists, and more.",
-      "meta": "TypeScript · ★ 6,616 · 🍴 605 · 📈 112 stars today",
+      "meta": "TypeScript · ★ 6,634 · 🍴 606 · 📈 241 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "自托管旅行规划系统，支持实时协作、交互式地图和PWA部署，集成预算管理和打包清单功能。旅行团队通过Web界面高效协作制定行程方案。"
+      "summary": "自托管旅行规划平台，支持实时协作、交互式地图、预算管理和打包清单，提供PWA与SSO功能，适合团队出行规划与差旅管理。"
     },
     {
       "sourceId": "github-trending",
       "title": "apple/container",
       "url": "https://github.com/apple/container",
       "excerpt": "A tool for creating and running Linux containers using lightweight virtual machines on a Mac. It is written in Swift, and optimized for Apple silicon.",
-      "meta": "Swift · ★ 43,189 · 🍴 1,266 · 📈 1,366 stars today",
+      "meta": "Swift · ★ 43,198 · 🍴 1,268 · 📈 1,351 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "Swift编写的轻量级容器工具，在Mac上通过虚拟机运行Linux环境，针对Apple Silicon优化。开发者用于快速搭建隔离的开发测试环境。"
+      "summary": "基于轻量级虚拟机的Linux容器工具，采用Swift编写并针对Apple Silicon优化，为Mac用户提供高效开发环境搭建方案。"
     },
     {
       "sourceId": "github-trending",
       "title": "JCodesMore/ai-website-cloner-template",
       "url": "https://github.com/JCodesMore/ai-website-cloner-template",
       "excerpt": "Clone any website with one command using AI coding agents",
-      "meta": "TypeScript · ★ 20,394 · 🍴 3,005 · 📈 1,021 stars today",
+      "meta": "TypeScript · ★ 20,408 · 🍴 3,007 · 📈 1,024 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "通过AI编程代理实现网站一键克隆，自动抓取并重构目标站点结构与内容。开发者用于快速原型制作或网站迁移场景。"
+      "summary": "通过AI编程代理一键克隆任意网站结构，快速生成可编辑副本，适用于原型开发与网站迁移场景。"
     },
     {
       "sourceId": "github-trending",
       "title": "every-app/open-seo",
       "url": "https://github.com/every-app/open-seo",
       "excerpt": "Open source alternative to Semrush and Ahrefs",
-      "meta": "TypeScript · ★ 2,498 · 🍴 295 · 📈 57 stars today",
+      "meta": "TypeScript · ★ 2,502 · 🍴 296 · 📈 57 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "开源SEO分析工具，提供关键词追踪和竞品分析功能，替代商业平台Semrush/Ahrefs。网站管理员用于优化搜索引擎排名策略。"
+      "summary": "开源SEO工具集，提供关键词分析、反向链接追踪等功能，作为Semrush和Ahrefs的免费替代方案，适合网站优化从业者。"
     },
     {
       "sourceId": "github-trending",
       "title": "garrytan/gstack",
       "url": "https://github.com/garrytan/gstack",
       "excerpt": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA",
-      "meta": "TypeScript · ★ 115,774 · 🍴 17,166 · 📈 836 stars today",
+      "meta": "TypeScript · ★ 115,784 · 🍴 17,168 · 📈 767 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "Garry Tan定制的Claude Code配置集，包含23个预设角色工具（CEO/设计师等），通过标准化工作流提升团队协作效率。技术团队用于敏捷开发管理。"
+      "summary": "复现Garry Tan的Claude Code配置，包含23个角色化工具（CEO/设计师/工程师等），通过标准化流程提升团队协作效率。"
     },
     {
       "sourceId": "github-trending",
       "title": "aws/agent-toolkit-for-aws",
       "url": "https://github.com/aws/agent-toolkit-for-aws",
       "excerpt": "Official, AWS-supported MCP servers, skills, and plugins to help AI agents build on AWS",
-      "meta": "Python · ★ 1,124 · 🍴 114 · 📈 15 stars today",
+      "meta": "Python · ★ 1,126 · 🍴 114 · 📈 47 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "AWS官方MCP服务器套件，提供预置技能和插件支持AI代理构建。云开发者用于快速集成AWS服务到智能代理系统。"
+      "summary": "AWS官方支持的MCP服务器与插件集合，提供云资源管理、安全配置等技能，帮助AI代理快速构建AWS应用。"
     },
     {
       "sourceId": "github-trending",
       "title": "mukul975/Anthropic-Cybersecurity-Skills",
       "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
       "excerpt": "817 structured cybersecurity skills for AI agents · Mapped to 6 frameworks: MITRE ATT&CK, NIST CSF 2.0, MITRE ATLAS, D3FEND, NIST AI RMF & MITRE F3 (Fight Fraud) · agentskills.io standard · Works with Claude Code, GitHub Copilot, Codex CLI, Cursor, Gemini CLI & 20+ platforms · 29 security domains · ",
-      "meta": "Python · ★ 21,205 · 🍴 2,445 · 📈 600 stars today",
+      "meta": "Python · ★ 21,213 · 🍴 2,447 · 📈 571 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "817项结构化网络安全技能库，映射MITRE ATT&CK等6大框架，符合agentskills.io标准。安全分析师用于训练AI代理执行渗透测试任务。"
+      "summary": "包含817项结构化网络安全技能库，映射MITRE ATT&CK等六大框架，符合agentskills.io标准，增强AI代理的安全分析能力。"
     },
     {
       "sourceId": "github-trending",
       "title": "alibaba/page-agent",
       "url": "https://github.com/alibaba/page-agent",
       "excerpt": "JavaScript in-page GUI agent. Control web interfaces with natural language.",
-      "meta": "TypeScript · ★ 19,791 · 🍴 1,705 · 📈 196 stars today",
+      "meta": "TypeScript · ★ 19,791 · 🍴 1,706 · 📈 163 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "JavaScript驱动的网页GUI代理，通过自然语言指令控制浏览器界面。自动化测试工程师用于构建智能Web操作脚本。"
+      "summary": "JavaScript驱动的网页GUI代理，通过自然语言指令控制浏览器界面，适用于自动化测试与网页交互场景。"
     },
     {
       "sourceId": "github-trending",
       "title": "IceWhaleTech/CasaOS",
       "url": "https://github.com/IceWhaleTech/CasaOS",
       "excerpt": "CasaOS - A simple, easy-to-use, elegant open-source Personal Cloud system.",
-      "meta": "Go · ★ 34,799 · 🍴 1,991 · 📈 202 stars today",
+      "meta": "Go · ★ 34,806 · 🍴 1,992 · 📈 223 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "开源个人云系统，提供文件管理和媒体中心功能，支持Web界面操作。普通用户用于搭建私有云存储和媒体库。"
+      "summary": "轻量级个人云系统，提供文件管理、应用商店和多媒体服务，支持Docker部署，适合家庭用户构建私有云存储。"
     },
     {
       "sourceId": "github-trending",
       "title": "opendatalab/MinerU",
       "url": "https://github.com/opendatalab/MinerU",
       "excerpt": "Transforms complex documents like PDFs and Office docs into LLM-ready markdown/JSON for your Agentic workflows.",
-      "meta": "Python · ★ 69,537 · 🍴 5,882 · 📈 524 stars today",
+      "meta": "Python · ★ 69,551 · 🍴 5,884 · 📈 644 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "文档解析工具，将PDF/Office文件转换为LLM可读的markdown/JSON格式，支持复杂排版处理。数据处理工程师用于构建AI工作流输入管道。"
+      "summary": "文档解析工具，将PDF/Office文档转换为LLM可用的Markdown/JSON格式，优化Agentic工作流的数据预处理环节。"
     },
     {
       "sourceId": "github-trending",
       "title": "Free-TV/IPTV",
       "url": "https://github.com/Free-TV/IPTV",
       "excerpt": "M3U Playlist for free TV channels",
-      "meta": "Python · ★ 18,193 · 🍴 2,677 · 📈 141 stars today",
+      "meta": "Python · ★ 18,200 · 🍴 2,678 · 📈 139 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "免费电视频道M3U播放列表集合，持续更新全球公开频道资源。电视爱好者通过媒体播放器直接访问流媒体内容。"
+      "summary": "维护免费电视频道M3U播放列表，支持全球多地区直播源，适用于媒体播放器与流媒体服务集成。"
     },
     {
       "sourceId": "github-trending",
       "title": "shanraisshan/claude-code-best-practice",
       "url": "https://github.com/shanraisshan/claude-code-best-practice",
       "excerpt": "from vibe coding to agentic engineering - practice makes claude perfect",
-      "meta": "HTML · ★ 60,504 · 🍴 6,061 · 📈 450 stars today",
+      "meta": "HTML · ★ 60,515 · 🍴 6,063 · 📈 287 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "Claude Code最佳实践指南，涵盖从创意编码到代理工程的完整方法论。开发者通过标准化流程提升AI辅助编程质量。"
+      "summary": "Claude Code最佳实践指南，涵盖从创意编程到代理工程的方法论，通过案例训练提升AI编程质量。"
     },
     {
       "sourceId": "github-trending",
       "title": "NanmiCoder/MediaCrawler",
       "url": "https://github.com/NanmiCoder/MediaCrawler",
       "excerpt": "小红书笔记 | 评论爬虫、抖音视频 | 评论爬虫、快手视频 | 评论爬虫、B 站视频 ｜ 评论爬虫、微博帖子 ｜ 评论爬虫、百度贴吧帖子 ｜ 百度贴吧评论回复爬虫 | 知乎问答文章｜评论爬虫",
-      "meta": "Python · ★ 52,733 · 🍴 10,920 · 📈 347 stars today",
+      "meta": "Python · ★ 52,737 · 🍴 10,920 · 📈 398 stars today",
       "category": "tech",
       "source": "GitHub Trending",
-      "summary": "社交媒体数据采集工具，支持小红书/抖音等平台的内容与评论爬取。数据分析师用于构建舆情监测和内容研究系统。"
+      "summary": "多平台内容爬取工具，支持小红书/抖音/快手/B站等10+平台的数据采集，提供评论与视频内容分析能力，适用于市场调研与舆情监测。"
     },
     {
       "sourceId": "v2ex-hot",
@@ -174,7 +174,7 @@
       "sourceId": "v2ex-hot",
       "title": " Apple 平板和电脑涨价",
       "url": "https://www.v2ex.com/t/1222904",
-      "excerpt": "33 回复 · Apple 节点",
+      "excerpt": "34 回复 · Apple 节点",
       "publishedAt": "2026-06-25T13:16:49.000Z",
       "category": "tech",
       "source": "V2EX"
@@ -183,7 +183,7 @@
       "sourceId": "v2ex-hot",
       "title": "我现在用 AI 干活太快 领导有些震惊 怎么办 你们是怎么装的",
       "url": "https://www.v2ex.com/t/1222834",
-      "excerpt": "26 回复 · 程序员 节点",
+      "excerpt": "27 回复 · 程序员 节点",
       "publishedAt": "2026-06-25T08:44:04.000Z",
       "category": "tech",
       "source": "V2EX"
@@ -192,7 +192,7 @@
       "sourceId": "v2ex-hot",
       "title": "程序员适合培养哪些爱好？",
       "url": "https://www.v2ex.com/t/1222922",
-      "excerpt": "22 回复 · 程序员 节点",
+      "excerpt": "23 回复 · 程序员 节点",
       "publishedAt": "2026-06-25T14:50:23.000Z",
       "category": "tech",
       "source": "V2EX"
@@ -289,19 +289,19 @@
     },
     {
       "sourceId": "v2ex-hot",
-      "title": "iPhone 屏幕防油渍防指纹涂层",
-      "url": "https://www.v2ex.com/t/1222645",
-      "excerpt": "9 回复 · Apple 节点",
-      "publishedAt": "2026-06-24T16:11:45.000Z",
+      "title": "今天重开了 Cursor Pro（新人半价 $10），竟然发现 GLM 5.2 可以免费蹬",
+      "url": "https://www.v2ex.com/t/1222905",
+      "excerpt": "9 回复 · 程序员 节点",
+      "publishedAt": "2026-06-25T13:22:34.000Z",
       "category": "tech",
       "source": "V2EX"
     },
     {
       "sourceId": "v2ex-hot",
-      "title": "今天重开了 Cursor Pro（新人半价 $10），竟然发现 GLM 5.2 可以免费蹬",
-      "url": "https://www.v2ex.com/t/1222905",
-      "excerpt": "8 回复 · 程序员 节点",
-      "publishedAt": "2026-06-25T13:22:34.000Z",
+      "title": "iPhone 屏幕防油渍防指纹涂层",
+      "url": "https://www.v2ex.com/t/1222645",
+      "excerpt": "9 回复 · Apple 节点",
+      "publishedAt": "2026-06-24T16:11:45.000Z",
       "category": "tech",
       "source": "V2EX"
     },
@@ -426,7 +426,7 @@
       "sourceId": "linuxdo",
       "title": "气笑了，兄弟们，第一次见API密钥管理面板变成评论区的，所谓的低价opencode其实本质上就是一号多卖，别买了兄弟们，大半夜的，还是绷不住笑了",
       "url": "https://linux.do/t/topic/2475923",
-      "excerpt": "刚打算给新的任务弄个GLM5.2的API给新的任务对接上，然后美美睡觉，结果发现好热闹，我买的是给邮箱的，但我说实话，就算是你给支付链接也差不多，很快就会被封的，太变态了，API评论区越来越多受害者了 这个店铺已经被迫关停了 130 个帖子 - 74 位参与者 阅读完整话题",
+      "excerpt": "刚打算给新的任务弄个GLM5.2的API给新的任务对接上，然后美美睡觉，结果发现好热闹，我买的是给邮箱的，但我说实话，就算是你给支付链接也差不多，很快就会被封的，太变态了，API评论区越来越多受害者了 这个店铺已经被迫关停了 133 个帖子 - 76 位参与者 阅读完整话题",
       "publishedAt": "2026-06-25T14:23:59.000Z",
       "category": "tech",
       "source": "LinuxDo"
@@ -588,7 +588,7 @@
       "sourceId": "linuxdo",
       "title": "朋友想拉我一起开个科技公司，求前景展望。",
       "url": "https://linux.do/t/topic/2472422",
-      "excerpt": "背景先说下，坐标上海，本人属于金融从业人员，本硕因为家长强制规划都选择了金融，但是从小对计算机感兴趣（纯纯爱打游戏）。年初入了ai这个大门，发现coding很有意思，能把自己的很多想法实现。（搞了个预测世界杯比赛的小程序，搞了个酒馆为基础的股市圆桌会议，搞了个挂机小游戏，搞了个半成品量化工具） 现在情况就是和2个朋友能凑个50-100万的闲置资金，想先弄个公司，慢慢找项目，个人倾向WX或者DY小游戏开发，因为周边有很多爱氪金的。（先弄个免申报，成本很低。自己有别的公司，需要跑注册审批一类的杂事都有人去做） 佬们有什么建议或者好的想法吗~~ 81 个帖子 - 59 位参与者 阅读完整话题",
+      "excerpt": "背景先说下，坐标上海，本人属于金融从业人员，本硕因为家长强制规划都选择了金融，但是从小对计算机感兴趣（纯纯爱打游戏）。年初入了ai这个大门，发现coding很有意思，能把自己的很多想法实现。（搞了个预测世界杯比赛的小程序，搞了个酒馆为基础的股市圆桌会议，搞了个挂机小游戏，搞了个半成品量化工具） 现在情况就是和2个朋友能凑个50-100万的闲置资金，想先弄个公司，慢慢找项目，个人倾向WX或者DY小游戏开发，因为周边有很多爱氪金的。（先弄个免申报，成本很低。自己有别的公司，需要跑注册审批一类的杂事都有人去做） 佬们有什么建议或者好的想法吗~~ 84 个帖子 - 62 位参与者 阅读完整话题",
       "publishedAt": "2026-06-25T06:08:07.000Z",
       "category": "tech",
       "source": "LinuxDo"
@@ -619,7 +619,7 @@
       "publishedAt": "2026-06-25T02:00:00.000Z",
       "category": "tech",
       "source": "OpenAI News",
-      "summary": "OpenAI研究报告显示AI代理可处理更复杂长周期任务，显著提升跨岗位工作效率。"
+      "summary": "OpenAI研究论文显示AI代理可执行更复杂任务，提升跨岗位生产力。"
     },
     {
       "sourceId": "openai-news",
@@ -629,7 +629,7 @@
       "publishedAt": "2026-06-24T06:00:00.000Z",
       "category": "tech",
       "source": "OpenAI News",
-      "summary": "OpenAI与Broadcom联合发布Jalapeño定制AI芯片，专为大语言模型推理优化，提升算力效率并缩短设计周期至9个月。"
+      "summary": "OpenAI与Broadcom联合发布Jalapeño芯片，专为LLM推理优化以提升性能与效率。"
     },
     {
       "sourceId": "openai-news",
@@ -891,7 +891,7 @@
       "publishedAt": "2026-06-24T16:30:01.000Z",
       "category": "tech",
       "source": "DeepMind Blog",
-      "summary": "Google DeepMind为Gemini 3.5 Flash模型新增计算机操作功能，支持直接控制桌面应用。"
+      "summary": "DeepMind在Gemini 3.5 Flash中新增电脑操作功能。"
     },
     {
       "sourceId": "deepmind-blog",
@@ -1162,7 +1162,7 @@
       "publishedAt": "2026-06-26T00:00:00.000Z",
       "category": "tech",
       "source": "Hugging Face Blog",
-      "summary": "Hugging Face发布vLLM服务器一键部署方案，通过Jobs功能简化模型服务部署流程。"
+      "summary": "Hugging Face发布功能，允许用户通过单命令在HF Jobs上部署vLLM服务器。"
     },
     {
       "sourceId": "huggingface-blog",
@@ -1172,7 +1172,7 @@
       "publishedAt": "2026-06-25T16:11:42.000Z",
       "category": "tech",
       "source": "Hugging Face Blog",
-      "summary": "AllenAI研究团队对比分析混合模型在不同token预测任务中的表现差异。"
+      "summary": "AllenAI研究混合模型在token预测中的表现差异。"
     },
     {
       "sourceId": "huggingface-blog",
@@ -1182,7 +1182,7 @@
       "publishedAt": "2026-06-24T16:00:13.000Z",
       "category": "tech",
       "source": "Hugging Face Blog",
-      "summary": "NVIDIA NeMo AutoModel工具可加速Transformer模型微调过程，优化训练效率。"
+      "summary": "NVIDIA推出NeMo AutoModel工具，加速Transformer模型微调过程。"
     },
     {
       "sourceId": "huggingface-blog",
@@ -1192,7 +1192,7 @@
       "publishedAt": "2026-06-24T00:00:00.000Z",
       "category": "tech",
       "source": "Hugging Face Blog",
-      "summary": "Hugging Face发布FFASR排行榜，建立真实场景下的语音识别模型基准测试体系。"
+      "summary": "Hugging Face推出FFASR排行榜，用于现实场景语音识别基准测试。"
     },
     {
       "sourceId": "huggingface-blog",
@@ -1437,7 +1437,7 @@
       "meta": "👍 88",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "针对LLM代理记忆系统从简单检索向持久化数据管理演进的需求，提出Agent-Native记忆系统框架，支持信息存储、检索、更新及生命周期治理，为构建高效代理提供基础。"
+      "summary": "提出Agent-Native Memory System，解决LLM代理内存系统仅支持简单检索的问题。通过构建支持持久存储、动态生命周期管理的数据管理系统，实现信息全生命周期治理，提升代理执行效率与数据管理能力。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1448,7 +1448,7 @@
       "meta": "👍 55",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "NatureBench构建跨学科90任务基准，基于NatureGym自动化流水线，评估AI编码代理能否在真实科学问题上超越复现实现发现，推动科研代理发展。"
+      "summary": "构建NatureBench基准，包含90项跨学科任务，评估AI编码代理能否超越复现实现科学发现。基于NatureGym自动化流程设计，检验代理在真实科研问题中的创新能力与代码生成质量。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1459,7 +1459,7 @@
       "meta": "👍 48",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "提出Execute-Distill-Verify范式，通过多代理循环替代单代理经验学习，解决LLM代理自我确认陷阱，提升开放环境交互中的经验积累效率。"
+      "summary": "提出Execute-Distill-Verify范式，解决LLM代理经验学习中的自确认陷阱。通过分离执行、蒸馏与验证环节，避免单代理循环导致的记忆偏差，提升开放世界交互中的经验积累有效性。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1470,7 +1470,7 @@
       "meta": "👍 40",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "Wan-Streamer设计原生流式端到端交互模型，统一建模语言、音频、视频输入输出，基于Transformer架构实现低延迟全双工音视频交互。"
+      "summary": "开发Wan-Streamer模型，实现端到端实时音视频交互。采用单Transformer架构统一处理语言、音频和视频输入输出，支持低延迟全双工交互，突破传统多模态模型在实时性上的限制。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1481,7 +1481,7 @@
       "meta": "👍 37",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "ShutterMuse针对拍摄时构图与主体姿态指导需求，构建多模态大模型评估框架，填补现有基准对拍摄时引导能力评估的空白。"
+      "summary": "提出ShutterMuse框架，利用MLLMs实现拍摄时摄影指导。解决现有基准仅评估后期裁剪的问题，提供相机构图与主体姿态的实时建议，提升多模态模型在摄影场景中的实用价值。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1492,7 +1492,7 @@
       "meta": "👍 27",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "系统综述多模态代码智能领域，分析视觉意图到代码转换任务，涵盖截图、图表、视频等模态，推动编程代理向多模态理解发展。"
+      "summary": "综述多模态代码智能领域进展，指出LLMs在视觉输入（如截图、图表）到可执行代码转换中的挑战。系统梳理现有方法，强调需建立视觉感知与代码生成的跨模态映射机制。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1503,7 +1503,7 @@
       "meta": "👍 27",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "AOHP开源OS级代理框架，支持跨应用任务执行与个性化交互，通过安全机制与高效工具调用提升AI代理在操作系统中的实用性。"
+      "summary": "开源AOHP操作系统级代理工具，解决现有OS对AI代理支持不足的问题。提供个性化、安全高效的跨应用交互能力，支持工具调用、信息提取与任务管理，推动代理原生系统发展。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1514,7 +1514,7 @@
       "meta": "👍 26",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "MVTrack4Gen通过多视角跟踪提供几何监督，解决单目视频生成新视角时的几何一致性与运动保真度问题，突破现有3D重建精度限制。"
+      "summary": "提出MVTrack4Gen方法，通过多视角跟踪作为几何监督生成4D视频。解决单目参考视频生成新视角时的几何一致性问题，避免依赖现有重建技术的精度限制，提升运动保真度。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1525,7 +1525,7 @@
       "meta": "👍 21",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "LingxiDiagBench构建中文精神诊断多代理基准，通过模拟医患对话评估LLM诊断能力，弥补AI辅助精神评估领域的标准化测试缺失。"
+      "summary": "构建LingxiDiagBench多代理框架，评估LLMs在中文精神诊断中的表现。通过模拟医患对话解决诊断主观性问题，提供标准化评估指标，推动AI辅助精神健康诊断的可靠性。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1536,7 +1536,7 @@
       "meta": "👍 19",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "UnityShots提出边界感知门控机制，解决多镜头音视频生成中的跨镜头记忆问题，实现主体外观与场景上下文的一致性保持。"
+      "summary": "提出UnityShots模型，通过记忆驱动与边界感知门控生成多镜头音视频。解决跨镜头主体外观、场景上下文连贯性问题，避免端到端训练或记忆库扩展带来的计算瓶颈。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1547,7 +1547,7 @@
       "meta": "👍 19",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "V-Zero通过对比证据门控实现无答案标签的在线蒸馏，提升细粒度视觉推理中MLLMs对局部图像区域的证据定位与推理能力。"
+      "summary": "开发V-Zero方法，通过无答案标签的在线蒸馏与对比证据门控提升细粒度视觉推理。避免依赖大规模监督数据或可验证奖励的强化学习，实现MLLMs对局部图像证据的精准定位与推理。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1558,7 +1558,7 @@
       "meta": "👍 18",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "FLAT采用前馈隐式三角形溅射技术，结合视频扩散模型生成几何准确的3D场景，解决单图生成可探索场景的几何结构问题。"
+      "summary": "提出FLAT方法，通过前馈潜空间三角形溅射生成几何准确3D场景。解决单图生成可探索场景时的几何表示问题，利用视频扩散模型的隐式多视角结构，提升生成场景的下游应用适配性。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1569,7 +1569,7 @@
       "meta": "👍 16",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "批判性分析代理定义与系统构建，指出当前LLM代理系统需理解各层技术栈，避免盲目追求生产力提升而忽视可控性风险。"
+      "summary": "批判性分析代理模型定义与代理性本质，探讨LLM系统作为‘编码代理’或‘AI科学家’的宣称与实际能力差距。指出当前代理工具在生产力提升与存在性风险之间的理论矛盾。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1580,7 +1580,7 @@
       "meta": "👍 15",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "Semantic Browsing提出可控多样性生成方法，通过语义引导打破文本到图像生成的单一性，实现用户意图驱动的多样化输出。"
+      "summary": "提出语义浏览方法，通过可控多样性生成图像。解决文本到图像模型过度遵循提示导致生成单一的问题，实现基于语义的多样化输出，避免随机变异的不可控性。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1591,7 +1591,7 @@
       "meta": "👍 14",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "IV-CoT引入隐式视觉思维链，解决结构感知文本到图像生成中的对象数量、空间关系及属性绑定问题，提升MLLMs结构遵循能力。"
+      "summary": "提出IV-CoT隐式视觉思维链，解决MLLMs在结构感知文本到图像生成中的提示遵循问题。通过隐式推理保留对象数量、空间关系等结构信息，提升复杂场景生成的准确性。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1602,7 +1602,7 @@
       "meta": "👍 11",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "《Agentic AI指南》系统阐述从基础到生产部署的代理系统构建方法，强调需理解各技术层以实现可靠自主AI系统。"
+      "summary": "出版《Agentic AI指南》，系统阐述从基础原理到生产部署的代理系统构建方法。强调需理解全栈技术层，包括模型、工具链与部署策略，为开发者提供实践参考框架。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1613,7 +1613,7 @@
       "meta": "👍 8",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "评估多模态CoT推理能力边界，发现其在视觉任务中效果有限，需结合模态特性设计专用推理策略以提升多模态理解性能。"
+      "summary": "系统研究多模态思维链（CoT）的适用边界，指出其在跨模态推理中的局限性。通过实验分析CoT在视觉任务中的有效性，揭示多模态模型需结合任务特性设计推理策略。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1624,7 +1624,7 @@
       "meta": "👍 8",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "Autodata训练元优化代理作为数据科学家，自动生成高质量合成数据，通过迭代优化提升训练与评估数据质量，推动数据驱动AI发展。"
+      "summary": "提出Autodata方法，训练代理作为数据科学家生成高质量合成数据。通过元优化提升代理的数据构建能力，解决训练数据稀缺问题，推动自举式数据增强技术发展。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1635,7 +1635,7 @@
       "meta": "👍 6",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "TryOnCrafter通过可渲染4D试衣代理突破视频虚拟试衣的被动相机依赖，实现动态主体与交互自由度的真实服装叠加生成。"
+      "summary": "开发TryOnCrafter模型，通过可渲染4D试衣代理释放相机轨迹自由度。解决视频虚拟试衣对源相机轨迹的依赖，实现动态主体与交互自由度的结合，提升试衣效果真实性。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1646,7 +1646,7 @@
       "meta": "👍 6",
       "category": "tech",
       "source": "HuggingFace Trending Papers",
-      "summary": "针对WordArt场景文本识别挑战，构建专用数据集并提出方法，解决艺术化字体、纹理及布局带来的识别难题，提升WATER任务性能。"
+      "summary": "构建WordArt场景文本识别数据集与方法，解决艺术文本（字体、纹理、布局）的识别挑战。提出专用模型与评估指标，推动非规则场景文本识别技术发展。"
     },
     {
       "sourceId": "huggingface-papers",
@@ -1756,7 +1756,7 @@
       "publishedAt": "2026-06-25T00:00:00.000Z",
       "category": "tech",
       "source": "TLDR AI",
-      "summary": "TLDR AI报道OpenAI与Broadcom联合发布Jalapeño推理芯片，Anthropic指控阿里巴巴侵权，Google Gemini推出计算机操作功能。"
+      "summary": "OpenAI与Broadcom发布Jalapeño芯片，Anthropic指控阿里巴巴，Gemini推出电脑操作功能。"
     },
     {
       "sourceId": "tldr-ai",
@@ -1766,7 +1766,7 @@
       "publishedAt": "2026-06-24T00:00:00.000Z",
       "category": "tech",
       "source": "TLDR AI",
-      "summary": "TLDR AI汇总Claude Tag社交功能、Seedance 2.5视频生成模型及Mistral OCR 4文档识别技术三大AI进展。"
+      "summary": "Anthropic发布Claude Tag，Seedance 2.5视频生成模型及Mistral OCR 4更新。"
     },
     {
       "sourceId": "tldr-ai",
@@ -1938,7 +1938,7 @@
       "publishedAt": "2026-06-24T05:44:39.000Z",
       "category": "tech",
       "source": "Smol AI News",
-      "summary": "OpenAI首款自研AI推理芯片Jalapeño搭载216GB HBM3E内存，采用Broadcom合作设计，旨在优化大模型计算成本结构。"
+      "summary": "OpenAI与Broadcom合作开发Jalapeño芯片，配备216GB HBM3E内存，设计周期仅9个月。"
     },
     {
       "sourceId": "smol-ai-news",
@@ -2209,7 +2209,7 @@
       "publishedAt": "2026-06-25T02:14:08.000Z",
       "category": "tech",
       "source": "Latent Space",
-      "summary": "Meta推出Harness Engineering升级版项目，强化AI工具链整合能力。"
+      "summary": "Meta推出名为Harness的AI项目，引发行业关注。"
     },
     {
       "sourceId": "latent-space",
@@ -2219,7 +2219,7 @@
       "publishedAt": "2026-06-24T18:53:16.000Z",
       "category": "tech",
       "source": "Latent Space",
-      "summary": "Databricks技术负责人Matei Zaharia与Reynold Xin联合访谈，探讨构建Agent Cloud所需的开源生态条件。"
+      "summary": "Databricks技术负责人强调开放前沿生态系统对构建Agent Clouds的重要性。"
     },
     {
       "sourceId": "latent-space",
@@ -2229,7 +2229,7 @@
       "publishedAt": "2026-06-24T07:14:26.000Z",
       "category": "tech",
       "source": "Latent Space",
-      "summary": "Anthropic推出Claude Tag功能，实现Slack平台内多用户协同的主动式AI代理服务。"
+      "summary": "Anthropic为Claude升级Slack集成，支持多用户主动式交互。"
     },
     {
       "sourceId": "latent-space",
@@ -2392,7 +2392,7 @@
       "publishedAt": "2026-06-25T14:22:59.000Z",
       "category": "tech",
       "source": "MIT Tech Review AI",
-      "summary": "MIT Tech Review指出AI正在重构零售业后台决策机制，产品搜索排序等隐性环节成为核心变革领域。"
+      "summary": "MIT Tech Review指出AI正重塑零售业，核心变革体现在后台决策优化而非消费者可见功能。"
     },
     {
       "sourceId": "mit-tech-review-ai",
@@ -2402,7 +2402,7 @@
       "publishedAt": "2026-06-24T11:59:54.000Z",
       "category": "tech",
       "source": "MIT Tech Review AI",
-      "summary": "MIT Tech Review分析指出，企业AI应用面临数据获取障碍，需构建新型网络数据基础设施层突破信息壁垒。"
+      "summary": "MIT Tech Review分析AI发展对数据基础设施的需求，指出非结构化数据利用仍是挑战。"
     },
     {
       "sourceId": "mit-tech-review-ai",
@@ -2485,7 +2485,7 @@
       "category": "tech",
       "meta": "@spandan_madan · 1.1K 粉丝 · 626.9K 阅 · 516 赞 · 28 转",
       "source": "X 推文 (AttentionVC)",
-      "summary": "博主分析AI硬件投资趋势，指出2026年超大规模数据中心资本支出将达6900亿美元，贝莱德单家数据中心投资超550亿美元，揭示行业资金流向与算力竞争格局。"
+      "summary": "AI硬件投资2026年将达6900亿美元，对比细胞与GPU运行相同算法的效率差异，揭示算力成本与生物计算的潜在差距。"
     },
     {
       "sourceId": "attentionvc-ai",
@@ -2496,7 +2496,7 @@
       "category": "tech",
       "meta": "@EngramLab · 1.2K 粉丝 · 255.7K 阅 · 537 赞 · 76 转",
       "source": "X 推文 (AttentionVC)",
-      "summary": "Engram发布新产品，主打能深度理解用户工作场景的AI系统，突破传统模型仅依赖训练数据的局限，强调个性化学习与工作流适配能力。"
+      "summary": "Engram推出可随用户工作场景动态扩展计算的AI工具，突破现有模型仅依赖训练数据的局限，实现个性化任务理解。"
     },
     {
       "sourceId": "attentionvc-ai",
@@ -2506,8 +2506,7 @@
       "publishedAt": "2026-06-23T09:28:22.000Z",
       "category": "tech",
       "meta": "@sairahul1 · 120.1K 粉丝 · 249.0K 阅 · 502 赞 · 90 转",
-      "source": "X 推文 (AttentionVC)",
-      "summary": "开发者必看的30个AI代理工程核心概念清单，聚焦真实技术实现而非概念炒作，涵盖代理系统底层架构与工程实践要点。"
+      "source": "X 推文 (AttentionVC)"
     },
     {
       "sourceId": "attentionvc-ai",
@@ -2518,7 +2517,7 @@
       "category": "tech",
       "meta": "@posthog · 21.8K 粉丝 · 162.4K 阅 · 512 赞 · 36 转",
       "source": "X 推文 (AttentionVC)",
-      "summary": "OpenClaw与Claude Code创始人共同推崇的「loops」概念解析，揭示该机制在提升AI工具效率中的关键作用及行业应用前景。"
+      "summary": "OpenClaw与Claude Code创始人共同推崇的'loops'概念解析，探讨迭代机制在AI工具开发中的核心价值与应用场景。"
     },
     {
       "sourceId": "attentionvc-ai",
@@ -2529,18 +2528,7 @@
       "category": "tech",
       "meta": "@const_reborn · 29.7K 粉丝 · 79.8K 阅 · 503 赞 · 116 转",
       "source": "X 推文 (AttentionVC)",
-      "summary": "子网与TAO挖矿机制升级说明，通过数学公式展示线性收益最大化与布尔门控制逻辑，明确该调整仅影响子网所有者和动态TAO分配。"
-    },
-    {
-      "sourceId": "attentionvc-ai",
-      "title": "How we built the world’s fastest API for GLM-5.2 ",
-      "url": "https://x.com/philipkiely/status/2069212319746506968",
-      "excerpt": "GLM-5.2 is the biggest news in open models since DeepSeek-R1. It’s easy to see why. GLM-5.2 delivers comparable performance to GPT 5.5 and Opus 4.8 at a fraction of the cost, generally 70-80% less",
-      "publishedAt": "2026-06-23T00:13:55.000Z",
-      "category": "tech",
-      "meta": "@philipkiely · 8.6K 粉丝 · 73.1K 阅 · 544 赞 · 36 转",
-      "source": "X 推文 (AttentionVC)",
-      "summary": "GLM-5.2 API性能突破，以70-80%成本实现与GPT-5.5/Opus 4.8相当的表现，成为继DeepSeek-R1后开源模型领域重大进展。"
+      "summary": "Subnet与TAO挖矿机制升级说明：通过线性增长与布尔门控制优化收益公式，仅影响子网所有者及动态TAO分配规则。"
     },
     {
       "sourceId": "attentionvc-ai",
@@ -2551,7 +2539,7 @@
       "category": "tech",
       "meta": "@GoogleAIStudio · 179.4K 粉丝 · 41.0K 阅 · 605 赞 · 57 转",
       "source": "X 推文 (AttentionVC)",
-      "summary": "Gemini 3.5 Flash原生集成电脑使用功能，代理任务性能达历史最佳，此前该能力仅存在于独立Gemini 2.5版本中。"
+      "summary": "Gemini 3.5 Flash新增内置computer use功能，实现最佳agentic电脑操作性能，原独立功能现集成至主流模型。"
     },
     {
       "sourceId": "attentionvc-ai",
@@ -2562,7 +2550,7 @@
       "category": "tech",
       "meta": "@zachlloydtweets · 11.4K 粉丝 · 39.2K 阅 · 504 赞 · 68 转",
       "source": "X 推文 (AttentionVC)",
-      "summary": "技能优化循环构建教程，通过自动评估器与电脑使用功能实现AI代理的自我技能迭代，包含完整反馈机制设计案例。"
+      "summary": "构建技能优化闭环教程：利用自动化评估器与computer use功能，实现Agent对Skills的持续性能优化与迭代升级。"
     },
     {
       "sourceId": "attentionvc-ai",
@@ -2573,7 +2561,45 @@
       "category": "tech",
       "meta": "@amitiitbhu · 23.6K 粉丝 · 35.7K 阅 · 514 赞 · 63 转",
       "source": "X 推文 (AttentionVC)",
-      "summary": "vLLM技术原理解析，详解其内存管理创新方案及在大规模语言模型服务中的实际应用价值，包含核心算法与部署场景说明。"
+      "summary": "vLLM技术解析：详解其内存管理机制与高并发LLM服务架构，揭示如何通过PagedAttention等创新提升推理效率。"
+    },
+    {
+      "sourceId": "bloomberg-markets",
+      "title": "Asian Stocks Decline at Open, Tech Leads Drop: Markets Wrap",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-25/asia-stocks-set-for-choppy-open-on-tech-volatility-markets-wrap",
+      "excerpt": "Stocks in Asia slipped after a volatile session on Wall Street, where renewed selling in megacap technology shares offset gains fueled by bullish reports from chipmakers.",
+      "publishedAt": "2026-06-25T22:05:08.000Z",
+      "category": "finance",
+      "source": "Bloomberg Markets"
+    },
+    {
+      "sourceId": "bloomberg-markets",
+      "title": "Oil Holds Gain as Traders Weigh Hormuz Flows After Ship Attack",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-25/latest-oil-market-news-and-analysis-for-june-26",
+      "excerpt": "Oil held the bulk of a gain after a cargo ship was attacked in the Strait of Hormuz, renewing concerns about safe passage through the vital waterway following a recent uptick in transits.",
+      "publishedAt": "2026-06-25T22:05:21.000Z",
+      "category": "finance",
+      "source": "Bloomberg Markets"
+    },
+    {
+      "sourceId": "bloomberg-markets",
+      "title": "Oil Prices Rise as Ship Struck in Hormuz",
+      "url": "https://www.bloomberg.com/news/videos/2026-06-26/oil-prices-rise-as-ship-struck-in-hormuz-video",
+      "excerpt": "Oil prices turned higher after a ship was hit by an unknown projectile in the Strait of Hormuz, sustaining damage to the bridge. Bloomberg's Mica Soellner has the context. (Source: Bloomberg)",
+      "publishedAt": "2026-06-26T00:11:01.000Z",
+      "category": "finance",
+      "source": "Bloomberg Markets",
+      "summary": "霍尔木兹海峡一艘船只遭不明物体击中受损，推动国际油价上涨。彭博社记者Mica Soellner分析事件影响。"
+    },
+    {
+      "sourceId": "bloomberg-markets",
+      "title": "Gold Steadies Near $4,000 as Inflation Data Eases Rate-Hike Bets",
+      "url": "https://www.bloomberg.com/news/articles/2026-06-25/gold-steadies-near-4-000-as-inflation-data-eases-rate-hike-bets",
+      "excerpt": "Gold steadied near $4,000 an ounce as the latest US inflation gauge tempered expectations for an interest-rate hike, capping a tumultuous week that saw bullion slump to the lowest since November.",
+      "publishedAt": "2026-06-25T23:58:21.000Z",
+      "category": "finance",
+      "source": "Bloomberg Markets",
+      "summary": "黄金价格稳定在每盎司4000美元附近，最新美国通胀数据缓解市场对加息的预期，结束了金价自11月以来最动荡的一周。"
     },
     {
       "sourceId": "bloomberg-markets",
@@ -2583,7 +2609,7 @@
       "publishedAt": "2026-06-25T23:21:22.000Z",
       "category": "finance",
       "source": "Bloomberg Markets",
-      "summary": "BHP新CEO Brandon Craig在7月1日正式上任前调整领导团队。"
+      "summary": "必和必拓新任CEO Brandon Craig在7月1日正式上任前调整公司管理层架构。"
     },
     {
       "sourceId": "bloomberg-markets",
@@ -2593,17 +2619,7 @@
       "publishedAt": "2026-06-25T23:30:00.000Z",
       "category": "finance",
       "source": "Bloomberg Markets",
-      "summary": "中国硬件科技股持续上涨，但需通过业绩验证支撑行情。"
-    },
-    {
-      "sourceId": "bloomberg-markets",
-      "title": "Asia Stocks Set for Choppy Open on Tech Volatility: Markets Wrap",
-      "url": "https://www.bloomberg.com/news/articles/2026-06-25/asia-stocks-set-for-choppy-open-on-tech-volatility-markets-wrap",
-      "excerpt": "Stocks in Asia were set for a mixed start on Friday after a volatile session on Wall Street, where renewed selling in megacap technology shares offset gains fueled by bullish reports from chipmakers.",
-      "publishedAt": "2026-06-25T22:05:08.000Z",
-      "category": "finance",
-      "source": "Bloomberg Markets",
-      "summary": "亚洲股市因科技股波动开盘震荡，美股科技股抛售抵消芯片股收益。"
+      "summary": "中国硬件科技股持续上涨，下一步需通过财报验证业绩支撑涨势。"
     },
     {
       "sourceId": "bloomberg-markets",
@@ -2622,17 +2638,7 @@
       "publishedAt": "2026-06-25T23:00:00.000Z",
       "category": "finance",
       "source": "Bloomberg Markets",
-      "summary": "苹果供应商Lingyi iTech募资83亿港元，将于周五在香港上市。"
-    },
-    {
-      "sourceId": "bloomberg-markets",
-      "title": "Oil Holds Gain as Traders Weigh Hormuz Flows After Ship Attack",
-      "url": "https://www.bloomberg.com/news/articles/2026-06-25/latest-oil-market-news-and-analysis-for-june-26",
-      "excerpt": "Oil held the bulk of a gain after a cargo ship was attacked in the Strait of Hormuz, renewing concerns about safe passage through the crucial waterway following a recent uptick in transits.",
-      "publishedAt": "2026-06-25T22:05:21.000Z",
-      "category": "finance",
-      "source": "Bloomberg Markets",
-      "summary": "霍尔木兹海峡货船遇袭引发通行担忧，油价维持涨势。"
+      "summary": "苹果供应商领益制造将于周五在港交所上市，此前募资83亿港元（约10.6亿美元），助力香港今年最繁忙的上市月份。"
     },
     {
       "sourceId": "bloomberg-markets",
@@ -2651,7 +2657,7 @@
       "publishedAt": "2026-06-25T22:15:46.000Z",
       "category": "finance",
       "source": "Bloomberg Markets",
-      "summary": "华尔街收盘分析节目，嘉宾包括花旗集团Olaolu Aganga及Moderna CEO Stéphane Bancel。"
+      "summary": "彭博收盘节目聚焦华尔街收盘前后动态，特邀嘉宾包括花旗财富管理主管Olaolu Aganga及Moderna CEO Stéphane Bancel。"
     },
     {
       "sourceId": "bloomberg-markets",
@@ -2661,7 +2667,7 @@
       "publishedAt": "2026-06-25T22:05:50.000Z",
       "category": "finance",
       "source": "Bloomberg Markets",
-      "summary": "美元创年内最佳月度表现，华尔街银行看好其走势，Warsh领导的美联储激活多头情绪。"
+      "summary": "美元结束年内最佳月份表现，华尔街多家银行看好美联储政策转向推动美元走强趋势。"
     },
     {
       "sourceId": "bloomberg-markets",
@@ -2831,24 +2837,6 @@
       "url": "https://www.bloomberg.com/news/articles/2026-06-25/trump-requests-11-1-billion-in-new-aid-for-struggling-farmers",
       "excerpt": "President Donald Trump had a surprise for the farmers he invited for dinner at the White House later Thursday: a request to Congress for $11.1 billion in assistance that would amount to the second bailout of the year for the beleaguered agriculture sector.",
       "publishedAt": "2026-06-25T15:29:33.000Z",
-      "category": "finance",
-      "source": "Bloomberg Markets"
-    },
-    {
-      "sourceId": "bloomberg-markets",
-      "title": "Confident In Growth Next Three Years: Casey CEO",
-      "url": "https://www.bloomberg.com/news/videos/2026-06-25/confident-in-growth-next-three-years-casey-ceo-video",
-      "excerpt": "Casey CEO Darren Rebelez discusses company growth, business in Texas, competition, food expansion. He speaks with Romaine Bostick on \"The Close.\" (Source: Bloomberg)",
-      "publishedAt": "2026-06-25T19:55:38.000Z",
-      "category": "finance",
-      "source": "Bloomberg Markets"
-    },
-    {
-      "sourceId": "bloomberg-markets",
-      "title": "Bond Traders Trim Fed Rate-Hike Bets After Benign Inflation Data",
-      "url": "https://www.bloomberg.com/news/articles/2026-06-25/treasuries-climb-as-benign-us-inflation-eases-bets-on-a-fed-hike",
-      "excerpt": "Bond traders priced in slightly lower expectations for a Federal Reserve interest-rate hike in the months ahead after the central bank’s favored inflation gauge rose less than estimated.",
-      "publishedAt": "2026-06-25T12:51:09.000Z",
       "category": "finance",
       "source": "Bloomberg Markets"
     },
@@ -3040,7 +3028,7 @@
       "publishedAt": "2026-06-25T22:36:09.000Z",
       "category": "finance",
       "source": "Financial Times",
-      "summary": "霍尔木兹海峡集装箱船遭不明物体袭击，国际海事组织暂停撤离计划。"
+      "summary": "霍尔木兹海峡集装箱船遭不明物体击中后，国际海事组织暂停受困船只的撤离计划。"
     },
     {
       "sourceId": "ft-companies",
@@ -3266,7 +3254,7 @@
       "publishedAt": "2026-06-25T23:28:13.000Z",
       "category": "finance",
       "source": "BBC Business",
-      "summary": "锂电池火灾成为航空安全首要风险，托运行李中发现的设备数量一年内近乎翻倍。"
+      "summary": "锂电池火灾成为航空安全首要风险，托运行李中发现的充电宝数量一年内几乎翻倍。"
     },
     {
       "sourceId": "bbc-business",
@@ -3276,7 +3264,7 @@
       "publishedAt": "2026-06-25T23:03:48.000Z",
       "category": "finance",
       "source": "BBC Business",
-      "summary": "成本上升迫使更多年轻人回家居住，需避免家庭矛盾。"
+      "summary": "生活成本上升迫使更多年轻人搬回父母家居住，文章探讨如何避免家庭矛盾。"
     },
     {
       "sourceId": "bbc-business",
@@ -3286,7 +3274,7 @@
       "publishedAt": "2026-06-25T23:19:48.000Z",
       "category": "finance",
       "source": "BBC Business",
-      "summary": "Owen Flowers和Thalha Jubair因参与TfL网络攻击被定罪，事件导致伦敦交通局蒙受重大损失。"
+      "summary": "两名青少年Owen Flowers和Thalha Jubair因攻击伦敦交通局系统被判刑，事件导致交通部门产生巨额成本。"
     },
     {
       "sourceId": "bbc-business",
@@ -3314,7 +3302,7 @@
       "publishedAt": "2026-06-25T23:05:05.000Z",
       "category": "finance",
       "source": "BBC Business",
-      "summary": "地热能源资源丰富但开发成本高昂，初创企业探索新方案，经济可行性存疑。"
+      "summary": "地热能作为丰富但昂贵的能源，初创企业探索新开发模式，但经济可行性仍存疑。"
     },
     {
       "sourceId": "bbc-business",
@@ -3804,6 +3792,15 @@
     },
     {
       "sourceId": "bbc-world",
+      "title": "Rescuers search rubble for survivors as Venezuela earthquakes kill at least 188",
+      "url": "https://www.bbc.co.uk/news/articles/cjegdqw5d3yo?at_medium=RSS&at_campaign=rss",
+      "excerpt": "Nearly 1,500 people have been injured after two seven-plus magnitude shallow quakes hit seconds apart.",
+      "publishedAt": "2026-06-25T20:46:38.000Z",
+      "category": "politics",
+      "source": "BBC World"
+    },
+    {
+      "sourceId": "bbc-world",
       "title": "Earthquake is devastating blow to Venezuela at time of uncertainty",
       "url": "https://www.bbc.co.uk/news/articles/c3vynpw7rk4o?at_medium=RSS&at_campaign=rss",
       "excerpt": "The twin quakes come less than six months after Venezuela's then-leader Nicolás Maduro was seized by US forces.",
@@ -3822,12 +3819,13 @@
     },
     {
       "sourceId": "bbc-world",
-      "title": "France warns even young people's health at risk as Europe's heatwave shifts east",
+      "title": "Paris restricts alcohol consumption and sales as Europe's heatwave shifts east",
       "url": "https://www.bbc.co.uk/news/articles/cwy0pdq89zno?at_medium=RSS&at_campaign=rss",
-      "excerpt": "Temperatures in Germany could hit 40C in some areas while French officials say deaths linked to the heat are being seen among young people.",
-      "publishedAt": "2026-06-25T21:27:06.000Z",
+      "excerpt": "Temperatures in Germany could hit 40C in some areas while French officials bring in alcohol restrictions to ease pressure on hospitals overwhelmed by patients during heatwave.",
+      "publishedAt": "2026-06-26T00:06:45.000Z",
       "category": "politics",
-      "source": "BBC World"
+      "source": "BBC World",
+      "summary": "德国部分地区气温可能达40℃，法国政府实施酒精销售限制以缓解医院压力。欧洲热浪向东蔓延，多国采取应对措施。"
     },
     {
       "sourceId": "bbc-world",
@@ -3975,12 +3973,23 @@
     },
     {
       "sourceId": "bbc-world",
+      "title": "The abundant but expensive energy source that's under your feet",
+      "url": "https://www.bbc.co.uk/news/articles/cj3gj1n8yz8o?at_medium=RSS&at_campaign=rss",
+      "excerpt": "Start-ups are taking fresh approaches to geothermal energy, but will the economics work?",
+      "publishedAt": "2026-06-25T23:05:05.000Z",
+      "category": "politics",
+      "source": "BBC World",
+      "summary": "初创企业探索地热能新方案，但经济可行性仍存疑。地下能源丰富但开发成本高昂。"
+    },
+    {
+      "sourceId": "bbc-world",
       "title": "Why the trail went cold in Nancy Guthrie case",
       "url": "https://www.bbc.co.uk/news/articles/cy064kg3n0ko?at_medium=RSS&at_campaign=rss",
       "excerpt": "The lack of a breakthrough in the abduction of a famous TV anchor's mother is puzzling given the huge publicity.",
       "publishedAt": "2026-06-25T23:12:22.000Z",
       "category": "politics",
-      "source": "BBC World"
+      "source": "BBC World",
+      "summary": "著名电视主持人母亲Nancy Guthrie绑架案因缺乏突破引发关注，尽管媒体广泛报道仍无进展。"
     },
     {
       "sourceId": "bbc-world",
@@ -3989,7 +3998,8 @@
       "excerpt": "A nostalgic tale about family, hope and hardship has opened an unexpected conversation.",
       "publishedAt": "2026-06-25T22:19:08.000Z",
       "category": "politics",
-      "source": "BBC World"
+      "source": "BBC World",
+      "summary": "中国票房电影在新加坡引发身份认同讨论，影片聚焦家庭与奋斗主题。"
     },
     {
       "sourceId": "bbc-world",
@@ -4015,15 +4025,6 @@
       "url": "https://www.bbc.co.uk/news/articles/cg74dj4xev5o?at_medium=RSS&at_campaign=rss",
       "excerpt": "Kerala is searching for new ways to care for its ageing population as migration leaves more elderly people living alone.",
       "publishedAt": "2026-06-25T02:38:03.000Z",
-      "category": "politics",
-      "source": "BBC World"
-    },
-    {
-      "sourceId": "bbc-world",
-      "title": "How to cope in a heatwave - according to you",
-      "url": "https://www.bbc.co.uk/news/articles/cze9w9xnprno?at_medium=RSS&at_campaign=rss",
-      "excerpt": "From what to wear to getting a restful night's sleep, you share your tips for beating the heat.",
-      "publishedAt": "2026-06-25T00:18:35.000Z",
       "category": "politics",
       "source": "BBC World"
     },
@@ -4200,13 +4201,23 @@
     },
     {
       "sourceId": "guardian-world",
-      "title": "Australia news live: Karl Stefanovic says his podcast is ‘about freedom of speech’ after Nine announces his immediate departure",
+      "title": "Australia news live: PM unsure if Australians caught up in Venezuela quake; new warning over fire ant threat to pets",
       "url": "https://www.theguardian.com/australia-news/live/2026/jun/26/australia-news-live-pat-conroy-defence-labor-karl-stefanovic-nine-moira-deeming-matthew-guy-liberals-victoria-coalition-tax-reform-ntwnfb",
-      "excerpt": "Nine says in a statement it was ‘no longer possible’ for Stefanovic to host Today. Follow today’s news live Get our breaking news email, free app or daily news podcast Albanese says Stefanovic saga ‘unfortunate’, but ‘words do matter’ The prime minister was asked by the ABC about Karl Stefanovic’s d",
-      "publishedAt": "2026-06-25T23:44:46.000Z",
+      "excerpt": "Prime minister says it is ‘possible’ that Australians are affected by severe earthquake. Follow today’s news live LIVE: Australia vs Paraguay – Socceroos World Cup game Get our breaking news email, free app or daily news podcast Albanese says Stefanovic saga ‘unfortunate’, but ‘words do matter’ The ",
+      "publishedAt": "2026-06-25T23:53:51.000Z",
       "category": "politics",
       "source": "The Guardian",
-      "summary": "Nine宣布主持人Karl Stefanovic立即离职，称其播客涉及言论自由。总理Albanese表示事件「不幸」，强调言论责任。"
+      "summary": "澳大利亚总理表示可能有公民受委内瑞拉地震影响，同时发布红火蚁威胁宠物的新警告。"
+    },
+    {
+      "sourceId": "guardian-world",
+      "title": "Who is Tommy Robinson? The Karl Stefanovic guest who has cost Australia’s famed TV host his job",
+      "url": "https://www.theguardian.com/uk-news/2026/jun/25/who-is-tommy-robinson-karl-stefanovic-interviewee-australian-tv-host-ntwnfb",
+      "excerpt": "Robinson, whose real name is Stephen Yaxley-Lennon, is an anti-Islamic, far-right political activist well known in the UK and Europe Follow our Australia news live blog for latest updates Get our breaking news email, free app or daily news podcast The man who calls himself Tommy Robinson has roared ",
+      "publishedAt": "2026-06-25T23:49:54.000Z",
+      "category": "politics",
+      "source": "The Guardian",
+      "summary": "英国极右翼活动家Tommy Robinson（本名Stephen Yaxley-Lennon）因在澳节目引发争议，导致主持人Karl Stefanovic失业。"
     },
     {
       "sourceId": "guardian-world",
@@ -4216,17 +4227,7 @@
       "publishedAt": "2026-06-25T23:07:37.000Z",
       "category": "politics",
       "source": "The Guardian",
-      "summary": "维多利亚警方调查Moira Deeming对Matthew Guy的袭击指控，结论「无犯罪」，Guy称指控「荒谬无据」。"
-    },
-    {
-      "sourceId": "guardian-world",
-      "title": "Who is Tommy Robinson? The Karl Stefanovic guest who may have cost Australia’s famed TV host his job",
-      "url": "https://www.theguardian.com/uk-news/2026/jun/25/who-is-tommy-robinson-karl-stefanovic-interviewee-australian-tv-host-ntwnfb",
-      "excerpt": "Robinson, whose real name is Stephen Yaxley-Lennon, is an anti-Islamic, far-right political activist well known in the UK and Europe Follow our Australia news live blog for latest updates Get our breaking news email, free app or daily news podcast The man who calls himself Tommy Robinson has roared ",
-      "publishedAt": "2026-06-25T22:08:18.000Z",
-      "category": "politics",
-      "source": "The Guardian",
-      "summary": "Tommy Robinson为反伊斯兰极右活动家，其访谈可能影响Stefanovic工作。"
+      "summary": "维多利亚警方结束对莫伊拉·德明指控马修·盖袭击的调查，认定无犯罪。盖方称指控荒谬不实。"
     },
     {
       "sourceId": "guardian-world",
@@ -4299,7 +4300,7 @@
       "publishedAt": "2026-06-25T22:23:36.000Z",
       "category": "politics",
       "source": "The Guardian",
-      "summary": "联合国暂停霍尔木兹海峡船只撤离，因船只遇袭，需确认安全。"
+      "summary": "联合国机构暂停霍尔木兹海峡船只疏散，因英军称船只遭弹道攻击，需确认安全后再行动。"
     },
     {
       "sourceId": "guardian-world",
@@ -4342,10 +4343,10 @@
       "title": "Venezuela Live Updates: Search for Survivors Grows More Urgent 24 Hours After Quakes",
       "url": "https://www.nytimes.com/live/2026/06/25/world/venezuela-earthquake",
       "excerpt": "Back-to-back earthquakes left at least 188 dead and injured more than 1,500 people, the authorities said. Residents of the port city of La Guaira estimated that hundreds of people were trapped in rubble. The toll was expected to rise.",
-      "publishedAt": "2026-06-25T23:39:05.000Z",
+      "publishedAt": "2026-06-26T00:04:03.000Z",
       "category": "politics",
       "source": "NYT World",
-      "summary": "委内瑞拉地震致至少188死、1500余人伤，La Guaira市数百人被困，救援持续，死亡人数恐上升。"
+      "summary": "委内瑞拉连续地震已致188人死亡、超1500人受伤，拉瓜伊拉市数百人被困废墟。伤亡人数预计持续上升，救援行动紧迫。"
     },
     {
       "sourceId": "nyt-world",
@@ -4382,7 +4383,7 @@
       "publishedAt": "2026-06-25T22:25:18.000Z",
       "category": "politics",
       "source": "NYT World",
-      "summary": "伊朗袭击霍尔木兹海峡船只，影响航运恢复，美国寻求区域支持。"
+      "summary": "伊朗袭击霍尔木兹海峡船只，阻碍航运恢复努力。美国正寻求区域支持其和平协议。"
     },
     {
       "sourceId": "nyt-world",
@@ -4473,7 +4474,7 @@
       "publishedAt": "2026-06-25T22:57:48.000Z",
       "category": "politics",
       "source": "NYT World",
-      "summary": "CDC警告刚果埃博拉接触追踪滞后，多数确诊者未被追踪。"
+      "summary": "刚果埃博拉疫情中多数确诊者未被追踪，接触者排查严重滞后，疫情控制面临挑战。"
     },
     {
       "sourceId": "nyt-world",
@@ -4483,7 +4484,7 @@
       "publishedAt": "2026-06-25T22:41:11.000Z",
       "category": "politics",
       "source": "NYT World",
-      "summary": "废墟下生存时间取决于水、空气及救援速度。"
+      "summary": "废墟中生存时间取决于水源、空气及救援速度，委内瑞拉地震幸存者救援刻不容缓。"
     },
     {
       "sourceId": "nyt-world",
@@ -4519,8 +4520,7 @@
       "excerpt": "New Canadian policies and a longstanding border agreement with the United States will make heading north a tough route for Syrians and Haitians.",
       "publishedAt": "2026-06-25T21:51:33.000Z",
       "category": "politics",
-      "source": "NYT World",
-      "summary": "加拿大收紧边境政策，限制美国驱逐的叙利亚与海地人入境。"
+      "source": "NYT World"
     },
     {
       "sourceId": "nyt-world",
@@ -4566,7 +4566,7 @@
       "publishedAt": "2026-06-25T22:58:23.000Z",
       "category": "politics",
       "source": "NYT World",
-      "summary": "La Guaira居民在废墟中寻找亲人，失踪儿童与男友被困，救援持续。"
+      "summary": "委内瑞拉拉瓜伊拉市居民在废墟中搜寻失踪亲人，地震破坏程度仍在评估中。"
     },
     {
       "sourceId": "nyt-world",
@@ -4611,8 +4611,7 @@
       "excerpt": "The court handed President Trump victories in his push to rescind deportation protections for hundreds of thousands of people and turn away migrants at the southern border.",
       "publishedAt": "2026-06-25T22:10:20.000Z",
       "category": "politics",
-      "source": "NYT World",
-      "summary": "最高法院扩大特朗普移民权力，撤销TPS保护，加强南部边境管控。"
+      "source": "NYT World"
     },
     {
       "sourceId": "npr-world",
@@ -4976,13 +4975,23 @@
     },
     {
       "sourceId": "aljazeera",
+      "title": "Iran war live: Israel attacks Lebanon as Netanyahu says troops to stay",
+      "url": "https://www.aljazeera.com/news/liveblog/2026/6/26/iran-war-live-israel-attacks-lebanon-as-netanyahu-says-troops-to-stay?traffic_source=rss",
+      "excerpt": "Israeli leader says military to stay in occupied areas of southern Lebanon 'as long as necessary', despite US-Iran deal.",
+      "publishedAt": "2026-06-26T00:00:09.000Z",
+      "category": "politics",
+      "source": "Al Jazeera",
+      "summary": "以色列对黎巴嫩发动攻击，内塔尼亚胡宣布军队将长期驻留南部占领区。此举在美伊协议背景下引发关注。"
+    },
+    {
+      "sourceId": "aljazeera",
       "title": "UN: Venezuela earthquakes will deepen already severe humanitarian crisis",
       "url": "https://www.aljazeera.com/video/newsfeed/2026/6/25/un-venezuela-earthquakes-will-deepen-already-severe-humanitarian-crisis?traffic_source=rss",
       "excerpt": "The UN says it is scaling up its response after twin earthquakes devastated Venezuela.",
       "publishedAt": "2026-06-25T23:20:02.000Z",
       "category": "politics",
       "source": "Al Jazeera",
-      "summary": "联合国称委内瑞拉地震加剧人道危机，正扩大应对措施。"
+      "summary": "联合国称委内瑞拉双地震将加剧人道危机，正扩大救援响应。"
     },
     {
       "sourceId": "aljazeera",
@@ -5018,8 +5027,7 @@
       "excerpt": "Venezuelans battle to rescue loved ones trapped alive beneath rubble of collapsed buildings after two major earthquakes.",
       "publishedAt": "2026-06-25T22:00:02.000Z",
       "category": "politics",
-      "source": "Al Jazeera",
-      "summary": "委内瑞拉地震至少188死，救援加强，废墟下寻找幸存者。"
+      "source": "Al Jazeera"
     },
     {
       "sourceId": "aljazeera",
@@ -5189,15 +5197,6 @@
       "url": "https://www.aljazeera.com/features/2026/6/25/hard-headed-pragmatism-israels-war-backfires-as-gulf-backs-us-iran-mou?traffic_source=rss",
       "excerpt": "A war meant to isolate Iran instead deepened Gulf pragmatism and strengthened support for diplomacy.",
       "publishedAt": "2026-06-25T17:11:34.000Z",
-      "category": "politics",
-      "source": "Al Jazeera"
-    },
-    {
-      "sourceId": "aljazeera",
-      "title": "How the HPV vaccine changes how we think about cancer",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/6/25/how-the-hpv-vaccine-changes-how-we-think-about-cancer?traffic_source=rss",
-      "excerpt": "Al Jazeera’s Linh Nguyen explains how the HPV vaccine changes the way we think about cancer.",
-      "publishedAt": "2026-06-25T17:07:49.000Z",
       "category": "politics",
       "source": "Al Jazeera"
     },
