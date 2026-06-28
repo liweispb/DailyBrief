@@ -1,34 +1,41 @@
 {
-  "hero_headline": "OpenAI发布GPT-5.6 Sol，AI能力再升级",
-  "daily_overview": "科技领域，OpenAI预览GPT-5.6 Sol模型强化编程与网络安全能力，DeepMind推出Gemini 3.5 Flash电脑控制功能，GitHub开源项目SimpleX实现无标识通讯。财经方面，特朗普威胁对欧洲征收100%关税，德国车企因中国竞争裁员，科技股销售引发债务担忧。时政热点包括美伊在霍尔木兹海峡冲突升级，委内瑞拉地震死亡人数超1400人，德国遭遇创纪录高温。",
+  "hero_headline": "OpenAI发布GPT-5.6，美伊冲突再升级",
+  "daily_overview": "技术层面，OpenAI发布GPT-5.6 Sol预览版，包含三个变体版本，在编程和科学领域能力显著提升；DeepMind为Gemini 3.5 Flash引入计算机使用功能，AI代理能力持续增强。财经方面，特朗普威胁对欧洲征收100%关税引发跨大西洋贸易摩擦担忧，德国汽车制造商启动历史性裁员应对中国竞争，科技公司股权销售引发AI债务担忧。时政方面，美国连续第二晚打击伊朗测试停火协议，委内瑞拉地震死亡人数超过1400人，中东局势持续紧张。",
   "tech_briefs": [
     {
-      "title": "OpenAI预览GPT-5.6 Sol模型",
+      "title": "OpenAI发布GPT-5.6 Sol预览版",
       "url": "https://openai.com/index/previewing-gpt-5-6-sol",
       "source": "OpenAI News",
-      "summary": "OpenAI发布GPT-5.6系列模型，旗舰版Sol在编程、科学和网络安全领域能力显著提升，配合最新安全机制（多家报道）",
+      "summary": "OpenAI预览GPT-5.6 Sol模型，包含Sol旗舰版、Terra中端版和Luna低成本版三个变体，在编程、科学和网络安全方面能力更强，目前限制在受信任合作伙伴范围内发布。（多家报道）",
       "importance": 9
     },
     {
-      "title": "DeepMind推出Gemini电脑控制功能",
+      "title": "Gemini 3.5 Flash新增计算机使用功能",
       "url": "https://deepmind.google/blog/introducing-computer-use-in-gemini-3-5-flash/",
       "source": "DeepMind Blog",
-      "summary": "Gemini 3.5 Flash新增电脑操作功能，可执行复杂任务并提升生产力，展示AI代理在办公场景的应用潜力",
-      "importance": 8
-    },
-    {
-      "title": "GitHub开源无标识通讯网络SimpleX",
-      "url": "https://github.com/simplex-chat/simplex-chat",
-      "source": "GitHub Trending",
-      "summary": "SimpleX实现完全无需用户标识的通讯协议，通过分布式架构保障隐私，支持多平台应用开发",
+      "summary": "DeepMind为Gemini 3.5 Flash引入计算机使用功能，使模型能够直接操作计算机界面，扩展AI代理在自动化任务中的应用场景。",
       "importance": 7
     },
     {
-      "title": "AI代理重塑工作模式研究发布",
-      "url": "https://openai.com/index/how-agents-are-transforming-work",
-      "source": "OpenAI News",
-      "summary": "OpenAI研究显示AI代理可处理更复杂长周期任务，在客服、研发等领域提升效率，内部使用量增长达56倍",
-      "importance": 8
+      "title": "SimpleX发布无用户标识的隐私通讯网络",
+      "url": "https://github.com/simplex-chat/simplex-chat",
+      "source": "GitHub Trending",
+      "summary": "SimpleX是首个无需任何用户标识的通讯网络，设计上实现100%隐私保护，提供iOS、Android和桌面应用。该项目在GitHub Trending上受到关注，为注重隐私的用户提供了新的通讯选择。",
+      "importance": 6
+    },
+    {
+      "title": "AI代理成为Polymarket预测市场主要参与者",
+      "url": "https://x.com/Oracle__Market/status/2070933680810590685",
+      "source": "X 推文 (AttentionVC)",
+      "summary": "2026年自主AI代理已成为预测市场Polymarket上最有效的策略之一，超过30%的交易活动来自算法和AI驱动的钱包，标志着AI在金融预测领域的深度渗透。",
+      "importance": 7
+    },
+    {
+      "title": "ai-berkshire开源AI价值投资研究框架",
+      "url": "https://github.com/xbtlin/ai-berkshire",
+      "source": "GitHub Trending",
+      "summary": "基于Claude Code构建的AI价值投资研究框架，整合巴菲特、芒格、段永平、李录四位大师的投资方法论，采用多Agent并行研究模式，为投资者提供AI辅助的价值投资分析工具。",
+      "importance": 6
     }
   ],
   "finance_briefs": [
@@ -36,88 +43,107 @@
       "title": "特朗普威胁对欧洲征收100%关税",
       "url": "https://www.bbc.co.uk/news/articles/cn4rd71411ko?at_medium=RSS&at_campaign=rss",
       "source": "BBC Business",
-      "summary": "美国总统称多国讨论科技税，威胁对欧洲国家实施100%关税报复，引发贸易摩擦担忧",
-      "importance": 9
-    },
-    {
-      "title": "德国车企启动历史性裁员计划",
-      "url": "https://www.ft.com/content/b68964c9-f3d0-48e8-8873-8f463834936c",
-      "source": "Financial Times",
-      "summary": "面对中国电动车竞争，德国汽车制造商宣布大规模裁员，欧洲工业模式面临重大挑战",
+      "summary": "美国总统特朗普威胁对多个欧洲国家征收100%关税，原因是这些国家正在讨论实施数字服务税，此举可能引发跨大西洋贸易摩擦升级。",
       "importance": 8
     },
     {
-      "title": "科技股销售引发AI债务担忧",
+      "title": "德国汽车制造商启动历史性裁员",
+      "url": "https://www.ft.com/content/b68964c9-f3d0-48e8-8873-8f46834936c",
+      "source": "Financial Times",
+      "summary": "面对中国竞争对手涌入市场，德国汽车制造商启动历史性裁员计划，威胁到欧洲最大经济体的工业模式，大众汽车或将全球再裁员数万人。",
+      "importance": 8
+    },
+    {
+      "title": "科技公司股权销售引发AI债务担忧",
       "url": "https://www.bloomberg.com/news/articles/2026-06-27/tech-equity-sales-renew-ai-debt-binge-worries-credit-weekly",
       "source": "Bloomberg Markets",
-      "summary": "科技公司大规模股票发行引发投资者担忧，类比互联网泡沫时期，债券持有人风险上升",
+      "summary": "科技公司大量出售股票引发投资者担忧，部分投资者认为这可能对债券持有人不利，市场担忧AI热潮下的过度借贷问题重演。",
       "importance": 7
     },
     {
-      "title": "ECB警告通胀风险仍存",
+      "title": "欧洲央行警告通胀风险仍存",
       "url": "https://www.bloomberg.com/news/articles/2026-06-27/ecb-s-schnabel-sees-upside-inflation-risks-despite-peace-deal",
       "source": "Bloomberg Markets",
-      "summary": "欧洲央行官员指出尽管美伊达成和平协议，但油价回升仍可能推高通胀预期",
+      "summary": "欧洲央行执行委员会成员Schnabel警告，尽管美国-伊朗和平协议重新开放霍尔木兹海峡，但价格压力可能比预期更强，通胀上行风险仍然存在。",
+      "importance": 7
+    },
+    {
+      "title": "AI是否会降低利率引发讨论",
+      "url": "https://www.economist.com/finance-and-economics/2026/06/25/will-ai-lower-interest-rates",
+      "source": "The Economist Finance",
+      "summary": "经济学家讨论AI技术是否可能降低利率，Kevin Warsh从艾伦·格林斯潘的经验中汲取教训，但选择性借鉴，引发关于AI对货币政策影响的深入思考。",
       "importance": 6
     }
   ],
   "politics_briefs": [
     {
-      "title": "美伊冲突升级威胁停火协议",
+      "title": "美国再次打击伊朗测试停火协议",
       "url": "https://www.nytimes.com/live/2026/06/27/world/us-iran-strikes-hormuz",
       "source": "NYT World",
-      "summary": "美国连续两晚对伊朗实施空袭，霍尔木兹海峡商船遭袭事件考验新达成的停火框架（多家报道）",
+      "summary": "美国军队连续第二晚对伊朗进行报复性空袭，原因是伊朗无人机袭击了霍尔木兹海峡的商业油轮，此举考验美伊停火协议的稳定性。（多家报道）",
       "importance": 9
     },
     {
-      "title": "委内瑞拉地震死亡人数超1400",
+      "title": "委内瑞拉地震死亡人数超过1400人",
       "url": "https://www.theguardian.com/world/2026/jun/27/venezuela-earthquakes-death-toll-rises-jorge-rodriguez",
       "source": "The Guardian",
-      "summary": "双震导致超1400人死亡，近7万人失踪，救援工作进入关键阶段，医院收治大量伤员",
-      "importance": 8
+      "summary": "委内瑞拉双地震死亡人数上升至超过1400人，近7万人被家属报告失踪，救援人员仍在寻找幸存者，医院收治大量伤员，灾情严重。（多家报道）",
+      "importance": 9
     },
     {
-      "title": "德国遭遇创纪录高温",
-      "url": "https://www.dw.com/zh/酷热-雷暴：创记录高温下的德国日常/a-77734949?maca=chi-rss-chi-all-1127-rdf",
-      "source": "DW 中文",
-      "summary": "德国多地出现极端高温天气，铁路系统瘫痪，养老院供电紧张，气候活动人士呼吁加强环保措施",
-      "importance": 6
+      "title": "以色列打击黎巴嫩南部",
+      "url": "https://www.bbc.co.uk/news/articles/cx2kpn0eeweo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC World",
+      "summary": "以色列对黎巴嫩南部发动打击，造成至少一人死亡，这是黎巴嫩和以色列签署框架协议后的一天，真主党谴责新协议。",
+      "importance": 7
     }
   ],
-  "editor_note": "AI技术迭代加速与地缘政治风险并存，科技巨头在资本市场的表现引发债务担忧，自然灾害持续考验应急响应能力。",
+  "editor_note": "技术迭代加速，地缘政治风险犹存，AI与金融的深度融合正在重塑全球竞争格局。",
   "keywords": [
     "GPT-5.6",
-    "关税威胁",
     "美伊冲突",
-    "德国裁员",
-    "委内瑞拉地震",
     "AI代理",
+    "德国汽车",
+    "委内瑞拉地震",
+    "数字服务税",
     "通胀风险",
-    "极端高温"
+    "隐私通讯"
   ],
   "trading": {
-    "market_overview": "美股方面，SPY与QQQ均位于20日均线下方，但QQQ趋势标记多头排列且MACD柱状线3.4673高于信号线7.5435，显示科技股存在结构性支撑。中概股普遍承压，BABA、JD等RSI进入超卖区（BABA RSI14仅16.5），但空头排列信号延续。加密市场恐慌贪婪指数15显示极度恐慌，BTC与ETH均出现MACD死叉，总市值2.15T美元较前日微跌0.32%，BTC主导率55.8%维持高位。商品外汇中，美元指数DXY RSI71.2进入超买区，WTI原油CL=F RSI27.1超卖，黄金期货GC=F MACD死叉。整体市场呈现风险资产承压、避险资产分化的技术格局。",
+    "market_overview": "当前市场呈现分化格局。美股方面，标普500（SPY）与纳斯达克（QQQ）均处中性趋势，但QQQ多头排列信号与SPY的20日均线支撑形成对比；科技股如MSFT、TSLA空头排列明显，而AAPL单日反弹3.14%显示局部动能。加密市场延续弱势，BTC与ETH均处空头排列，RSI 31.9接近超卖，配合恐慌贪婪指数18的极度恐慌状态，总市值2.15T微跌0.21%。中概股普遍承压，BABA RSI 16.5深度超卖，JD与腾讯控股均触发空头排列。商品外汇中，黄金期货MACD死叉但单日反弹1.63%，原油WTI RSI 27.1超卖；美元指数DXY RSI 71.2进入超买区，多头排列延续。整体技术面显示风险资产承压，避险情绪升温。",
     "watchlist": [
       {
-        "symbol": "DX-Y.NYB",
-        "display_name": "美元指数 DXY",
+        "symbol": "DXY",
+        "display_name": "美元指数 (DXY)",
         "stance": "偏上行",
-        "rationale": "美元指数(DX-Y.NYB)当前价格101.37，RSI14达71.2进入超买区，MACD柱状线0.6138高于信号线0.4672，趋势标记为多头排列。5日涨幅0.51%，接近52周高点，技术面显示短期上行动能较强。"
+        "rationale": "RSI 71.2进入超买区间，MACD金叉且柱状图持续放大，价格站上20/50/200日均线形成多头排列，近5日上涨0.51%逼近52周高点，技术面显示强势延续。"
       },
       {
         "symbol": "BABA",
         "display_name": "阿里巴巴 (BABA)",
         "stance": "偏下行",
-        "rationale": "阿里巴巴(BABA)现价94.81，RSI14仅16.5处于超卖区，MACD柱状线-8.5279低于信号线-6.8041，趋势标记空头排列。5日跌幅达11.48%，但超卖状态或暗示短期反弹风险。"
+        "rationale": "RSI 16.5深度超卖，现价94.81较20日均线113.53偏离16.5%，近5日暴跌11.48%，MACD死叉且信号线持续下行，空头排列结构完整，技术面显示弱势延续。"
       },
       {
-        "symbol": "^VIX",
+        "symbol": "VIX",
         "display_name": "VIX 恐慌指数",
+        "stance": "偏上行",
+        "rationale": "MACD金叉且柱状图转正，RSI 51.1回升至中性区，近5日涨幅12.26%突破20日均线，虽未超买但动能增强，反映市场波动率预期上升。"
+      },
+      {
+        "symbol": "QQQ",
+        "display_name": "纳斯达克100 ETF (QQQ)",
         "stance": "中性",
-        "rationale": "VIX恐慌指数(^VIX)现价18.41，RSI14为51.1处于中性区间，MACD柱状线0.1523高于信号线0.038形成金叉。5日涨幅12.26%，但趋势标记中性，显示市场波动率短期震荡。"
+        "rationale": "多头排列结构完整，但现价706.52跌破20日均线724.76，RSI 46.5接近中性区，近5日下跌4.6%与MACD死叉信号形成矛盾，技术面显示多空博弈加剧。"
+      },
+      {
+        "symbol": "BTC-USD",
+        "display_name": "比特币 (BTC-USD)",
+        "stance": "偏下行",
+        "rationale": "MACD死叉且柱状图持续扩大，RSI 31.9逼近超卖区，现价60024.96较200日均线75837.91偏离20.8%，空头排列结构明确，技术面显示下行压力未缓解。"
       }
     ],
-    "risk_caveat": "本报告基于公开行情数据计算的技术指标，仅作客观形态描述。过去走势不代表未来表现，所有分析仅供技术指标解读参考，不构成任何投资建议。",
+    "risk_caveat": "本报告基于历史技术指标生成，过去走势不代表未来表现。所有分析仅供技术指标解读参考，不构成投资建议。市场存在不确定性，请结合基本面与风险管理决策。",
     "tickers": [
       {
         "symbol": "SPY",
@@ -295,17 +321,17 @@
         "currency": "USD",
         "exchangeName": "NMS",
         "currentPrice": 550.25,
-        "pct1Day": 1.3594423985837352,
-        "pct5Day": -4.672390435534005,
+        "pct1Day": -1.3305329563258295,
+        "pct5Day": -3.0533169893295478,
         "pct52WeekHigh": -30.894819466248038,
         "pct52WeekLow": 5.764425479567911,
-        "sma20": 583.2929962158203,
-        "sma50": 612.8983984375,
-        "sma200": 650.019499206543,
-        "rsi14": 37.38451244145612,
-        "macd": -16.259112103865846,
-        "macdSignal": -13.175606756124697,
-        "macdHistogram": -3.0835053477411485,
+        "sma20": 587.5449951171875,
+        "sma50": 615.3249987792968,
+        "sma200": 651.0967492675782,
+        "rsi14": 34.14526297767158,
+        "macd": -15.724016920560416,
+        "macdSignal": -12.404730419189411,
+        "macdHistogram": -3.319286501371005,
         "trend": "bearish",
         "rsiState": "normal",
         "signals": [
@@ -321,18 +347,18 @@
         "group": "crypto",
         "currency": "USD",
         "exchangeName": "CCC",
-        "currentPrice": 59975.83,
-        "pct1Day": -0.06764762201183422,
-        "pct5Day": -6.2175833611811155,
-        "pct52WeekHigh": -52.47484371195217,
-        "pct52WeekLow": 3.2714247144083184,
-        "sma20": 63048.596875,
-        "sma50": 69826.871171875,
-        "sma200": 75837.662734375,
-        "rsi14": 31.766572189246645,
-        "macd": -2320.226244275771,
-        "macdSignal": -2295.413234677285,
-        "macdHistogram": -24.813009598486133,
+        "currentPrice": 60024.96,
+        "pct1Day": 0.014213295499941724,
+        "pct5Day": -6.140760245444911,
+        "pct52WeekHigh": -52.43591284716162,
+        "pct52WeekLow": 3.356020877499661,
+        "sma20": 63051.053515625,
+        "sma50": 69827.853828125,
+        "sma200": 75837.9083984375,
+        "rsi14": 31.904323295915745,
+        "macd": -2316.3068176377565,
+        "macdSignal": -2294.6293493499106,
+        "macdHistogram": -21.67746828784584,
         "trend": "bearish",
         "rsiState": "normal",
         "signals": [
@@ -353,18 +379,18 @@
         "group": "crypto",
         "currency": "USD",
         "exchangeName": "CCC",
-        "currentPrice": 1572.2,
-        "pct1Day": -0.28009918827864133,
-        "pct5Day": -8.937729119019888,
-        "pct52WeekHigh": -68.26231853836289,
-        "pct52WeekLow": 4.360707032173865,
-        "sma20": 1680.6688598632813,
-        "sma50": 1905.877587890625,
-        "sma200": 2318.876505126953,
-        "rsi14": 31.784386022622442,
-        "macd": -79.38196298264438,
-        "macdSignal": -78.25737114066168,
-        "macdHistogram": -1.1245918419827063,
+        "currentPrice": 1573.38,
+        "pct1Day": -0.20525534973530232,
+        "pct5Day": -8.869383183617547,
+        "pct52WeekHigh": -68.23849811848963,
+        "pct52WeekLow": 4.439033984405116,
+        "sma20": 1680.7278625488282,
+        "sma50": 1905.9011889648436,
+        "sma200": 2318.8824053955077,
+        "rsi14": 31.86147795737874,
+        "macd": -79.28782764385437,
+        "macdSignal": -78.23854407287146,
+        "macdHistogram": -1.049283570982908,
         "trend": "bearish",
         "rsiState": "normal",
         "signals": [
@@ -385,18 +411,18 @@
         "group": "crypto",
         "currency": "USD",
         "exchangeName": "CCC",
-        "currentPrice": 70.55,
-        "pct1Day": -1.789341887357877,
-        "pct5Day": -1.8887493213633737,
-        "pct52WeekHigh": -72.13774027002893,
-        "pct52WeekLow": 16.776176402042406,
-        "sma20": 69.61420269012451,
-        "sma50": 77.6566226196289,
-        "sma200": 95.46541244506835,
-        "rsi14": 46.872493113500646,
-        "macd": -1.5105905117313938,
-        "macdSignal": -2.0583510054591097,
-        "macdHistogram": 0.5477604937277158,
+        "currentPrice": 70.5,
+        "pct1Day": -1.8589454721294123,
+        "pct5Day": -1.9582824543744517,
+        "pct52WeekHigh": -72.15748673333863,
+        "pct52WeekLow": 16.693415114727,
+        "sma20": 69.61170253753662,
+        "sma50": 77.65562255859375,
+        "sma200": 95.46516242980957,
+        "rsi14": 46.780477470141875,
+        "macd": -1.5145793591641592,
+        "macdSignal": -2.0591487749444854,
+        "macdHistogram": 0.5445694157803262,
         "trend": "bearish",
         "rsiState": "normal",
         "signals": [
@@ -709,19 +735,19 @@
       }
     ],
     "crypto_fear_greed": {
-      "value": 15,
+      "value": 18,
       "classification": "Extreme Fear",
       "classificationCn": "极度恐慌",
-      "timestamp": "2026-06-27T00:00:00.000Z"
+      "timestamp": "2026-06-28T00:00:00.000Z"
     },
     "crypto_global": {
-      "totalMarketCapUsd": 2153523055932.476,
-      "total24hVolumeUsd": 44332291369.09871,
-      "marketCapChangePct24h": -0.3246412262608068,
-      "btcDominance": 55.80466015440641,
-      "ethDominance": 8.803094733816923,
-      "activeCryptocurrencies": 17440
+      "totalMarketCapUsd": 2154634802521.8428,
+      "total24hVolumeUsd": 44243475382.70022,
+      "marketCapChangePct24h": -0.20798312936702745,
+      "btcDominance": 55.81587300683526,
+      "ethDominance": 8.805739719547958,
+      "activeCryptocurrencies": 17441
     },
-    "generated_at": "2026-06-27T23:40:43.770Z"
+    "generated_at": "2026-06-28T00:14:26.868Z"
   }
 }
