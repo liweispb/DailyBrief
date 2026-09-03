@@ -93,12 +93,12 @@
 3. **Settings → Pages → Build and deployment → Source** 选 "Deploy from a branch"，分支 `gh-pages` / 路径 `/ (root)`（第一次跑完才会出现 gh-pages 分支，先建 secret 再触发一次即可）
 4. **🔑 配置 LLM 后端** —— 这步是关键。每个后端都要**一个 secret + 对应的 `LLM_BACKEND` variable**（不只是 secret），按下表对照填：
 
-   > ⚠️ **最常踩的坑**：只加了 secret（比如 `DEEPSEEK_API_KEY`）忘了加 `LLM_BACKEND` variable —— workflow 默认 `LLM_BACKEND=anthropic`，所以无论你填的是哪家的 key，运行时都会报 `ANTHROPIC_API_KEY required`。两个都要加。
+   > ⚠️ **最常踩的坑**：只加了 secret（比如 `ANTHROPIC_API_KEY`）忘了加 `LLM_BACKEND` variable —— workflow 默认 `LLM_BACKEND=deepseek`，所以无论你填的是哪家的 key，运行时都会报 `DEEPSEEK_API_KEY required`。两个都要加（只有 DeepSeek 可以不填 variable）。
 
    | 你想用 | Secrets 标签加 | Variables 标签加 `LLM_BACKEND` | 大致成本 |
    |---|---|---|---|
-   | 🟣 **Anthropic Sonnet**（默认，prompt 按 Sonnet 调优） | `ANTHROPIC_API_KEY` | 不填或填 `anthropic` | ~$0.03-0.05 / 天，月 < $2 |
-   | 🐋 **DeepSeek**（便宜大碗，中文友好） | `DEEPSEEK_API_KEY` | `deepseek` | ~$0.01-0.02 / 天，月 < $1 |
+   | 🐋 **DeepSeek V4 Flash**（默认，便宜大碗，中文友好） | `DEEPSEEK_API_KEY` | 不填或填 `deepseek` | ~$0.01-0.02 / 天，月 < $1 |
+   | 🟣 **Anthropic Sonnet**（prompt 按 Sonnet 调优） | `ANTHROPIC_API_KEY` | `anthropic` | ~$0.03-0.05 / 天，月 < $2 |
    | 🟢 **OpenAI** | `OPENAI_API_KEY` | `openai` | gpt-4o-mini ~$0.02 / 天 |
    | 🔵 **MiniMax** | `MINIMAX_API_KEY` | `minimax` | 类似 DeepSeek 量级 |
    | 🧠 **Zhipu / 智谱** | `ZHIPU_API_KEY` | `zhipu` | 看服务方定价 |
@@ -144,7 +144,7 @@
 - **第一次跑完才能选 Pages source** —— Pages 设置页要求选已存在的分支，但 `gh-pages` 是首次 workflow 跑成功后才创建出来。顺序：配 secret → 触发 workflow → 跑完 → 回 Settings → Pages 选 `gh-pages`
 - **Action 红 X 怎么看具体原因** —— 点失败的 build → 左边列出每个 step → 找有红 X 的那步点开看 log。最常见两类：`401/402` = API key 拼错或没余额；`403` = workflow permissions 没设成 Read and write
 - **自动触发只跑了 `gate`，后面的 build 被 skipped** —— 这是调度门禁在工作，不一定是失败。点开那次 run → `gate` → `Check schedule`，看 `Now in ...`、`Configured REPORT_HOUR=...` 和 `No match — skipping (...)`。最常见原因是没在 **Repository Variables** 里设置 `REPORT_TZ=Asia/Shanghai`，此时默认按 UTC 08:00 触发（北京时间 16:00）。如果变量放在 **Settings → Environments** 里，默认 workflow 也读不到；请移到 **Settings → Secrets and variables → Actions → Variables**，或给 `gate` / `build` 两个 job 都加同一个 `environment: <name>`
-- **报错 `ANTHROPIC_API_KEY (or generic LLM_API_KEY) is required`，但我填的是别家的 key** —— 经典 secret/variable 不配对。Workflow 默认 `LLM_BACKEND=anthropic`，光填 `DEEPSEEK_API_KEY` / `OPENAI_API_KEY` 不够，**必须同时去 Variables 标签加 `LLM_BACKEND=deepseek` / `openai`**。从 v1.x 起启动期会直接告诉你哪个 key 已设、应该把 `LLM_BACKEND` 改成什么
+- **报错 `DEEPSEEK_API_KEY (or generic LLM_API_KEY) is required`，但我填的是别家的 key** —— 经典 secret/variable 不配对。Workflow 默认 `LLM_BACKEND=deepseek`，光填 `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` 不够，**必须同时去 Variables 标签加 `LLM_BACKEND=anthropic` / `openai`**。从 v1.x 起启动期会直接告诉你哪个 key 已设、应该把 `LLM_BACKEND` 改成什么
 - **配齐了 secret + variable 还是报同样的错** —— 99% 是配置放错了作用域。GitHub 上有两个长得几乎一样的页面：
   - ✅ **Settings → Secrets and variables → Actions**（页眉是 "Repository secrets" / "Repository variables"）—— 本项目默认走这里
   - ⚠️ **Settings → Environments → \<某个 environment\>**（页眉是 "Environment secrets" / "Environment variables"）—— 这里的值**只有当 workflow job 显式声明了 `environment: <name>` 才会注入**；本项目默认 workflow 没声明，所以放这里运行时拿不到
@@ -625,12 +625,12 @@ The registry currently contains 53 sources, with 26 enabled by default. After lo
 3. **Settings → Pages → Build and deployment → Source** → "Deploy from a branch" → branch `gh-pages` / path `/ (root)` (the `gh-pages` branch only exists after the first successful workflow run — configure secrets first, trigger once, then come back)
 4. **🔑 Configure the LLM backend** — this is the critical step. Each backend needs **a secret AND the matching `LLM_BACKEND` variable** (not just the secret). Pick one row:
 
-   > ⚠️ **Most common mistake**: adding only the secret (e.g. `DEEPSEEK_API_KEY`) and forgetting the `LLM_BACKEND` variable. The workflow defaults `LLM_BACKEND` to `anthropic`, so whatever key you set, the run will crash with `ANTHROPIC_API_KEY required`. Both pieces are required.
+   > ⚠️ **Most common mistake**: adding only the secret (e.g. `ANTHROPIC_API_KEY`) and forgetting the `LLM_BACKEND` variable. The workflow defaults `LLM_BACKEND` to `deepseek`, so whatever key you set, the run will crash with `DEEPSEEK_API_KEY required`. Both pieces are required (only DeepSeek can skip the variable).
 
    | You want | Secret to add | `LLM_BACKEND` variable | Rough cost |
    |---|---|---|---|
-   | 🟣 **Anthropic Sonnet** (default; prompts tuned for it) | `ANTHROPIC_API_KEY` | leave unset or `anthropic` | ~$0.03-0.05/day, <$2/month |
-   | 🐋 **DeepSeek** (cheap, China-friendly) | `DEEPSEEK_API_KEY` | `deepseek` | ~$0.01-0.02/day, <$1/month |
+   | 🐋 **DeepSeek V4 Flash** (default; cheap, China-friendly) | `DEEPSEEK_API_KEY` | leave unset or `deepseek` | ~$0.01-0.02/day, <$1/month |
+   | 🟣 **Anthropic Sonnet** (prompts tuned for it) | `ANTHROPIC_API_KEY` | `anthropic` | ~$0.03-0.05/day, <$2/month |
    | 🟢 **OpenAI** | `OPENAI_API_KEY` | `openai` | gpt-4o-mini ~$0.02/day |
    | 🔵 **MiniMax** | `MINIMAX_API_KEY` | `minimax` | Similar to DeepSeek |
    | 🧠 **Zhipu** | `ZHIPU_API_KEY` | `zhipu` | Depends on provider |
@@ -676,7 +676,7 @@ If you just want the default (08:00 local daily), **set only `REPORT_TZ`** (e.g.
 - **Pages source dropdown doesn't show `gh-pages`** — that branch only exists after the first successful workflow run. Order: configure secret → trigger workflow → wait for green → go back to Settings → Pages.
 - **Where to read a failed run** — Actions tab → click the red X → left sidebar lists each step → click the failing one to expand its log. Most common causes: `401`/`402` (API key wrong or out of credit), `403` (workflow permissions still set to "Read only").
 - **Scheduled runs only execute `gate`, then build is skipped** — this is the schedule gate doing its job, not necessarily a failure. Open that run → `gate` → `Check schedule`, then inspect `Now in ...`, `Configured REPORT_HOUR=...`, and `No match — skipping (...)`. The most common cause is missing `REPORT_TZ=Asia/Shanghai` in **Repository Variables**, so the default is UTC 08:00 (16:00 in Beijing). Variables stored under **Settings → Environments** are invisible to the default workflow; move them to **Settings → Secrets and variables → Actions → Variables**, or add the same `environment: <name>` to both the `gate` and `build` jobs.
-- **Error: `ANTHROPIC_API_KEY (or generic LLM_API_KEY) is required` — but I set a different provider's key** — classic secret-without-variable mismatch. The workflow defaults `LLM_BACKEND=anthropic`; setting `DEEPSEEK_API_KEY` / `OPENAI_API_KEY` alone is not enough — you **also need to add the matching `LLM_BACKEND=deepseek` / `openai` under Variables**. As of v1.x the startup check prints exactly which key it found and which `LLM_BACKEND` value to set.
+- **Error: `DEEPSEEK_API_KEY (or generic LLM_API_KEY) is required` — but I set a different provider's key** — classic secret-without-variable mismatch. The workflow defaults `LLM_BACKEND=deepseek`; setting `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` alone is not enough — you **also need to add the matching `LLM_BACKEND=anthropic` / `openai` under Variables**. As of v1.x the startup check prints exactly which key it found and which `LLM_BACKEND` value to set.
 - **I added both the secret and variable, still the same error** — 99% sure your values went into the wrong scope. GitHub has two near-identical-looking pages:
   - ✅ **Settings → Secrets and variables → Actions** (header reads "Repository secrets" / "Repository variables") — this is the default this project uses
   - ⚠️ **Settings → Environments → \<some environment\>** (header reads "Environment secrets" / "Environment variables") — values here are **only injected when a workflow job declares `environment: <name>`**; the default workflow doesn't, so anything stored here is invisible at runtime

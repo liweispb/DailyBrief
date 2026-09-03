@@ -108,9 +108,9 @@ export async function runLlm(opts: LlmRunOptions): Promise<LlmRunResult> {
  * instead of after 30s of source-fetching + half a dozen confusing
  * "ANTHROPIC_API_KEY required" lines deep into the pipeline.
  *
- * The default LLM_BACKEND in the GH Actions workflow is `anthropic`,
- * so the most common forker mistake is: add DEEPSEEK_API_KEY as a
- * secret, forget to add the matching `LLM_BACKEND=deepseek` variable,
+ * The default LLM_BACKEND in the GH Actions workflow is `deepseek`,
+ * so the most common forker mistake is: add ANTHROPIC_API_KEY as a
+ * secret, forget to add the matching `LLM_BACKEND=anthropic` variable,
  * then watch the run blow up looking for a key they never intended
  * to use. We detect that exact case and tell them how to fix it.
  */

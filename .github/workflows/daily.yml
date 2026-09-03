@@ -7,16 +7,20 @@ env:
 #   1. Settings → Actions → General → enable workflows (forked repos start disabled)
 #   2. Settings → Pages → Build & deployment → Source: "Deploy from a branch" → gh-pages / root
 #   3. Settings → Secrets and variables → Actions:
-#        - Secrets: ANTHROPIC_API_KEY (or OPENAI / DEEPSEEK / MINIMAX / ZHIPU as you prefer)
+#        - Secrets: DEEPSEEK_API_KEY (or ANTHROPIC / OPENAI / MINIMAX / ZHIPU as you prefer)
 #        - Variables (all optional, sensible defaults provided):
-#            LLM_BACKEND     anthropic | openai | deepseek | minimax | zhipu    (default: anthropic)
-#            LLM_MODEL       e.g. claude-sonnet-4-6 / gpt-4o-mini       (backend default if unset)
+#            LLM_BACKEND     deepseek | anthropic | openai | minimax | zhipu    (default: deepseek)
+#            LLM_MODEL       e.g. deepseek-v4-flash / claude-sonnet-4-6  (backend default if unset)
 #            REPORT_LOCALE   zh | en                                    (default: zh)
 #            REPORT_TZ       IANA tz, e.g. Asia/Shanghai / UTC          (default: UTC in CI)
 #            REPORT_HOUR     trigger hour(s) in REPORT_TZ, comma-list   (default: 8 — 08:00)
 #                            examples: "8" / "8,18" / "0,6,12,18"
 #            REPORT_DAYS     day-of-week filter (cron-style 0-6 SUN=0)  (default: * — every day)
 #                            examples: "*" / "1-5" (weekdays) / "1,3,5" (MWF)
+#            DISABLE_SOURCE_IDS  comma-separated source ids to skip in CI  (default: linuxdo)
+#                            linux.do blocks datacenter IPs, so it can't be
+#                            fetched from Actions runners — skipped here, still
+#                            works locally. Set "" to attempt all sources.
 #   4. Trigger once manually from Actions tab to seed gh-pages.
 #
 # After first successful run your report is live at:
@@ -208,7 +212,7 @@ jobs:
 
       - name: Generate today's report
         env:
-          LLM_BACKEND: ${{ vars.LLM_BACKEND || 'anthropic' }}
+          LLM_BACKEND: ${{ vars.LLM_BACKEND || 'deepseek' }}
           LLM_MODEL: ${{ vars.LLM_MODEL }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -231,6 +235,13 @@ jobs:
           LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
           REPORT_LOCALE: ${{ vars.REPORT_LOCALE || 'zh' }}
           REPORT_TZ: ${{ vars.REPORT_TZ }}
+          # Sources to skip in CI (comma-separated ids). linux.do's WAF blocks
+          # datacenter egress from Actions runners (and Cloudflare Workers too —
+          # no free proxy gets through), so fetching it here always fails. It
+          # still works locally, so we skip it only in CI rather than disabling
+          # it in the shared config. Override via the DISABLE_SOURCE_IDS
+          # Actions Variable if you want a different set.
+          DISABLE_SOURCE_IDS: ${{ vars.DISABLE_SOURCE_IDS || 'linuxdo' }}
           WEB_MODE: 'true'
         run: npm run daily
 
