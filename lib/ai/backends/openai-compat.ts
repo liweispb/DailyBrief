@@ -83,6 +83,12 @@ export async function runOpenAICompat(
   const timeoutMs = opts.timeoutMs ?? 180_000;
 
   try {
+    // Allow override for providers whose hard output cap is lower/higher
+    // than the default. SenseNova flash-lite has been observed to stop
+    // mid-JSON on the digest call even at 8192; callers that need more
+    // headroom can set LLM_MAX_TOKENS.
+    const maxTokensRaw = process.env.LLM_MAX_TOKENS?.trim();
+    const maxTokens = maxTokensRaw ? Number(maxTokensRaw) : 8192;
     const resp = await client.chat.completions.create(
       {
         model,
@@ -96,15 +102,34 @@ export async function runOpenAICompat(
         // structure, and silent truncation made it through with just 1/16
         // entries parseable. 8192 covers all observed daily batches with
         // generous headroom. Match the explicit value Anthropic SDK uses.
-        max_tokens: 8192,
+        max_tokens: Number.isFinite(maxTokens) && maxTokens > 0 ? maxTokens : 8192,
         // Don't force JSON mode — not all OpenAI-compat providers support
         // response_format=json_object, and our prompts + jsonrepair already
         // handle the slop.
       },
       { timeout: timeoutMs },
     );
-    const text = (resp.choices[0]?.message?.content ?? "").trim();
+    const choice = resp.choices[0];
+    const text = (choice?.message?.content ?? "").trim();
+    const finishReason = choice?.finish_reason ?? null;
     const durationMs = Date.now() - started;
+    if (finishReason === "length") {
+      logLlmCall({
+        ts: new Date(started).toISOString(),
+        backend: cfg.backend,
+        model,
+        durationMs,
+        success: false,
+        inputChars,
+        outputChars: text.length,
+        errorCategory: "truncated",
+        errorSnippet: `finish_reason=length outputChars=${text.length}`,
+      });
+      throw new Error(
+        `LLM output truncated (finish_reason=length, outputChars=${text.length}). ` +
+          "Retry with a smaller prompt or raise LLM_MAX_TOKENS if the provider allows it.",
+      );
+    }
     logLlmCall({
       ts: new Date(started).toISOString(),
       backend: cfg.backend,
