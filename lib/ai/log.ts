@@ -1,6 +1,6 @@
 import fs from "node:fs";
 
-export type LlmErrorCategory = "timeout" | "quota" | "auth" | "other" | null;
+export type LlmErrorCategory = "timeout" | "quota" | "auth" | "truncated" | "other" | null;
 
 export interface LlmCallRecord {
   ts: string;
@@ -36,5 +36,6 @@ export function classifyError(blob: string): LlmErrorCategory {
   if (/timeout|timed out|etimedout/i.test(blob)) return "timeout";
   if (QUOTA_PATTERN.test(blob)) return "quota";
   if (AUTH_PATTERN.test(blob)) return "auth";
+  if (/truncat|finish_reason=length|unexpected end of json/i.test(blob)) return "truncated";
   return "other";
 }
