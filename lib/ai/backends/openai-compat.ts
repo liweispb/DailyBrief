@@ -84,35 +84,80 @@ export async function runOpenAICompat(
 
   try {
     // Allow override for providers whose hard output cap is lower/higher
-    // than the default. SenseNova flash-lite has been observed to stop
-    // mid-JSON on the digest call even at 8192; callers that need more
-    // headroom can set LLM_MAX_TOKENS.
+    // than the default. SenseNova has been observed to return
+    // finish_reason=length with *empty* content when max_tokens is set
+    // too high (e.g. 8192); 4096 is the safer default, overridable via
+    // LLM_MAX_TOKENS.
     const maxTokensRaw = process.env.LLM_MAX_TOKENS?.trim();
-    const maxTokens = maxTokensRaw ? Number(maxTokensRaw) : 8192;
-    const resp = await client.chat.completions.create(
-      {
+    const maxTokensParsed = maxTokensRaw ? Number(maxTokensRaw) : 4096;
+    const maxTokens =
+      Number.isFinite(maxTokensParsed) && maxTokensParsed > 0
+        ? maxTokensParsed
+        : 4096;
+
+    const messages = [
+      { role: "system" as const, content: opts.systemPrompt },
+      { role: "user" as const, content: opts.userPrompt },
+    ];
+
+    // SenseNova flash-lite occasionally returns empty content with
+    // finish_reason=length (or empty + stop). Same-prompt API retries
+    // often recover before we burn a digest shrink cycle.
+    const maxEmptyRetries = 2;
+    let text = "";
+    let finishReason: string | null = null;
+    let lastDurationMs = 0;
+    for (let attempt = 0; attempt <= maxEmptyRetries; attempt++) {
+      const resp = await client.chat.completions.create(
+        {
+          model,
+          messages,
+          max_tokens: maxTokens,
+          // Don't force JSON mode — not all OpenAI-compat providers support
+          // response_format=json_object, and our prompts + jsonrepair already
+          // handle the slop.
+        },
+        { timeout: timeoutMs },
+      );
+      const choice = resp.choices[0];
+      text = (choice?.message?.content ?? "").trim();
+      finishReason = choice?.finish_reason ?? null;
+      lastDurationMs = Date.now() - started;
+      if (text.length > 0 && finishReason !== "length") {
+        break;
+      }
+      if (text.length > 0 && finishReason === "length") {
+        // Real truncation of a non-empty body — surface to caller so they
+        // can shrink the ask. Don't spin empty-retries here.
+        break;
+      }
+      // Empty body (regardless of finish_reason).
+      console.warn(
+        `[openai-compat] empty LLM content (finish_reason=${finishReason}, attempt ${attempt + 1}/${maxEmptyRetries + 1}); retrying`,
+      );
+      if (attempt < maxEmptyRetries) {
+        await new Promise((r) => setTimeout(r, 800 * (attempt + 1)));
+      }
+    }
+
+    const durationMs = lastDurationMs || Date.now() - started;
+    if (!text) {
+      logLlmCall({
+        ts: new Date(started).toISOString(),
+        backend: cfg.backend,
         model,
-        messages: [
-          { role: "system", content: opts.systemPrompt },
-          { role: "user", content: opts.userPrompt },
-        ],
-        // Explicit max_tokens — most providers default low (DeepSeek 4096,
-        // some MiniMax variants 2048). A 16-item batch enrichment routinely
-        // exceeds 4K output tokens once you count Chinese chars + JSON
-        // structure, and silent truncation made it through with just 1/16
-        // entries parseable. 8192 covers all observed daily batches with
-        // generous headroom. Match the explicit value Anthropic SDK uses.
-        max_tokens: Number.isFinite(maxTokens) && maxTokens > 0 ? maxTokens : 8192,
-        // Don't force JSON mode — not all OpenAI-compat providers support
-        // response_format=json_object, and our prompts + jsonrepair already
-        // handle the slop.
-      },
-      { timeout: timeoutMs },
-    );
-    const choice = resp.choices[0];
-    const text = (choice?.message?.content ?? "").trim();
-    const finishReason = choice?.finish_reason ?? null;
-    const durationMs = Date.now() - started;
+        durationMs,
+        success: false,
+        inputChars,
+        outputChars: 0,
+        errorCategory: "truncated",
+        errorSnippet: `empty content finish_reason=${finishReason}`,
+      });
+      throw new Error(
+        `LLM returned empty content (finish_reason=${finishReason}, max_tokens=${maxTokens}). ` +
+          "Provider flake or oversize ask — retry / shrink prompt / tune LLM_MAX_TOKENS.",
+      );
+    }
     if (finishReason === "length") {
       logLlmCall({
         ts: new Date(started).toISOString(),
@@ -127,7 +172,7 @@ export async function runOpenAICompat(
       });
       throw new Error(
         `LLM output truncated (finish_reason=length, outputChars=${text.length}). ` +
-          "Retry with a smaller prompt or raise LLM_MAX_TOKENS if the provider allows it.",
+          "Retry with a smaller prompt or adjust LLM_MAX_TOKENS.",
       );
     }
     logLlmCall({
