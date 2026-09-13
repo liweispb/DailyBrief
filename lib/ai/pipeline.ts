@@ -314,6 +314,7 @@ export async function generateDailyReport(
     { inputScale: 1, excerptChars: 200, compact: false },
     { inputScale: 0.6, excerptChars: 120, compact: true },
     { inputScale: 0.35, excerptChars: 80, compact: true },
+    { inputScale: 0.2, excerptChars: 60, compact: true },
   ];
 
   let report: DailyReport | undefined;
@@ -338,23 +339,21 @@ export async function generateDailyReport(
           err instanceof Error ? err.message : String(err)
         }`,
       );
-      // Non-truncation errors still get one same-scale retry historically;
-      // after that, continue shrinking only when it looks like truncation.
-      if (!truncation && i === 0) {
-        try {
-          console.warn("[pipeline] non-truncation failure; one same-payload retry");
-          report = await callOnce(userPayloadJson, scale);
-          break;
-        } catch (retryErr) {
-          lastErr = retryErr;
-          console.warn(
-            `[pipeline] same-payload retry failed: ${
-              retryErr instanceof Error ? retryErr.message : String(retryErr)
-            }`,
-          );
-          // Fall through to smaller attempts in case the failure was actually
-          // a truncated body that didn't match our heuristics.
-        }
+      // One same-payload retry (provider flakes often clear on a second call)
+      // before we shrink further.
+      try {
+        console.warn(
+          `[pipeline] same-payload retry after ${truncation ? "truncation-like" : "other"} failure`,
+        );
+        report = await callOnce(userPayloadJson, scale);
+        break;
+      } catch (retryErr) {
+        lastErr = retryErr;
+        console.warn(
+          `[pipeline] same-payload retry failed: ${
+            retryErr instanceof Error ? retryErr.message : String(retryErr)
+          }`,
+        );
       }
     }
   }
